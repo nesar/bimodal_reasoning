@@ -4,9 +4,9 @@ base_config:
   dataset_path: "${base_dir}/data/datasets/spec_text2text"
 
   # --- Model ---
-  # Switch from meta-llama/Meta-Llama-3-8B-Instruct to gpt-oss-120b
-  # Update this to the correct HuggingFace model ID or local path when available
-  pretrained_model: "gpt-oss-120b"
+  # Target: openai/gpt-oss-120b (scale up when 6xA100 node is available)
+  # Current: openai/gpt-oss-20b for pipeline validation on 2xA100
+  pretrained_model: "openai/gpt-oss-20b"
 
   # --- Tokenization ---
   # Strategy to use when converting spectra to text tokens.
