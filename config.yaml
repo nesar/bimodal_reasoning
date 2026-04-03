@@ -1,0 +1,71 @@
+base_config:
+  base_dir: "/lcrc/project/cosmo_ai/nramachandra/Projects/SpecFoundation/bimodal_reasoning"
+  data_hdf5: "/lcrc/project/cosmo_ai/nramachandra/Projects/SpecFoundation/data/Tokyo/Data/sdss_galaxy_spec.hdf5"
+  dataset_path: "${base_dir}/data/datasets/spec_text2text"
+
+  # --- Model ---
+  # Switch from meta-llama/Meta-Llama-3-8B-Instruct to gpt-oss-120b
+  # Update this to the correct HuggingFace model ID or local path when available
+  pretrained_model: "gpt-oss-120b"
+
+  # --- Tokenization ---
+  # Strategy to use when converting spectra to text tokens.
+  # Options: digit_base10, digit_base16, quantized_vocab, log_scaled, patch_mean, wavelength_value_pairs
+  # See tokenization/spec_tokenizer.py for implementation of each strategy.
+  tokenization_strategy: "digit_base10"
+  tokenization_prec: 2         # decimal precision for digit strategies
+  spectrum_length: 256         # number of flux bins per sample (subsampled from 4556)
+  spectrum_stride: 8           # stride when subsampling (4556 / 8 ≈ 570, then take first 512)
+
+  # --- Training ---
+  benchmark_tasks: "mmlu_college_physics,mmlu_high_school_physics,leaderboard_bbh,leaderboard_gpqa,leaderboard_math_hard,astro_mlab_araa_mcq_gemini15"
+  batch_size: 1
+  num_fewshot: 2
+  block_size: 512
+
+experiments:
+  - name: "varying_learning_rate"
+    description: "Varying Learning Rate (fixed LoRA rank = 8, epochs = 2, training samples = 10000)"
+    fixed:
+      lora_r: 8
+      num_train_epochs: 2
+      training_samples: 10000
+    variations:
+      learning_rate: [1e-3, 1e-4, 1e-5]
+
+  - name: "varying_lora_rank"
+    description: "Varying LoRA Rank (fixed learning rate = 1e-4, epochs = 2, training samples = 10000)"
+    fixed:
+      learning_rate: 1e-4
+      num_train_epochs: 2
+      training_samples: 10000
+    variations:
+      lora_r: [4, 8, 16, 32]
+
+  - name: "varying_epochs"
+    description: "Varying Number of Epochs (fixed learning rate = 1e-4, LoRA rank = 8, training samples = 10000)"
+    fixed:
+      learning_rate: 1e-4
+      lora_r: 8
+      training_samples: 10000
+    variations:
+      num_train_epochs: [1, 2, 3]
+
+  - name: "varying_training_size"
+    description: "Varying Training Set Size (fixed learning rate = 1e-4, LoRA rank = 8, epochs = 2)"
+    fixed:
+      learning_rate: 1e-4
+      lora_r: 8
+      num_train_epochs: 2
+    variations:
+      training_samples: [4000, 8000, 10000]
+
+  - name: "varying_tokenization"
+    description: "Varying tokenization strategy (fixed lr=1e-4, rank=8, epochs=2, samples=10000)"
+    fixed:
+      learning_rate: 1e-4
+      lora_r: 8
+      num_train_epochs: 2
+      training_samples: 10000
+    variations:
+      tokenization_strategy: [digit_base10, digit_base16, log_scaled, patch_mean]
