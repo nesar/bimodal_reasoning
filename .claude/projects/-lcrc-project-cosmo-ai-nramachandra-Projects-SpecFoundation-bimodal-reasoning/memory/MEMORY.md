@@ -1,0 +1,1 @@
+- [Hardware & model targets](project_hardware_and_model.md) — 6xA100, gpt-oss-20b now, 120b later
