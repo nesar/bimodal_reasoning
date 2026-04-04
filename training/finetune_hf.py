@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
 """
-finetune_hf.py — LoRA fine-tuning using HuggingFace Trainer + PEFT.
+finetune_hf.py — QLoRA fine-tuning using HuggingFace Trainer + PEFT.
 
-Usage (single-node, multi-GPU with DeepSpeed):
-    deepspeed --num_gpus 2 training/finetune_hf.py \
+Usage (single GPU, QLoRA):
+    python training/finetune_hf.py \
         --model_name_or_path openai/gpt-oss-20b \
         --dataset_path data/datasets/structured_verbalization/text2text.json \
-        --output_dir output_models/gpt-oss-20b_structured \
-        --deepspeed configs/ds_config_zero3.json
+        --output_dir output_models/gpt-oss-20b_structured
 
-Usage (single GPU, no DeepSpeed):
-    python training/finetune_hf.py \
+Usage (multi-GPU, QLoRA + DDP):
+    torchrun --nproc_per_node 2 training/finetune_hf.py \
         --model_name_or_path openai/gpt-oss-20b \
         --dataset_path data/datasets/structured_verbalization/text2text.json \
         --output_dir output_models/gpt-oss-20b_structured
@@ -18,7 +17,6 @@ Usage (single GPU, no DeepSpeed):
 
 import argparse
 import json
-import os
 
 import torch
 from datasets import Dataset
@@ -30,14 +28,6 @@ from transformers import (
     Trainer,
     DataCollatorForLanguageModeling,
 )
-
-
-def _has_flash_attn() -> bool:
-    try:
-        import flash_attn  # noqa: F401
-        return True
-    except ImportError:
-        return False
 
 
 def load_text2text(path: str) -> list[dict]:
@@ -86,14 +76,8 @@ def main():
     parser.add_argument("--block_size", type=int, default=512)
     parser.add_argument("--logging_steps", type=int, default=20)
     parser.add_argument("--save_steps", type=int, default=500)
-    parser.add_argument("--deepspeed", type=str, default=None)
     parser.add_argument("--local_rank", type=int, default=-1)
     args = parser.parse_args()
-
-    # Enable ZeRO-3 parameter partitioning during model init
-    if args.deepspeed:
-        from transformers.integrations import HfDeepSpeedConfig
-        dschf = HfDeepSpeedConfig(args.deepspeed)  # noqa: F841 — kept alive for side effects
 
     # Load tokenizer
     tokenizer = AutoTokenizer.from_pretrained(
@@ -109,15 +93,20 @@ def main():
     dataset = tokenize_instances(instances, tokenizer, args.block_size)
     print(f"  Tokenized: {len(dataset)} sequences")
 
-    # Load model
-    print(f"Loading model {args.model_name_or_path} ...")
+    # Load model with native MXFP4 quantization, sharded across available GPUs
+    # Reserve ~8GB per GPU for activations, gradients, and optimizer states
+    n_gpus = torch.cuda.device_count()
+    max_mem = {i: "32GiB" for i in range(n_gpus)}
+    print(f"Loading model {args.model_name_or_path} across {n_gpus} GPUs ...")
     model = AutoModelForCausalLM.from_pretrained(
         args.model_name_or_path,
         trust_remote_code=True,
-        dtype=torch.bfloat16,
         attn_implementation="eager",
+        device_map="auto",
+        max_memory=max_mem,
+        low_cpu_mem_usage=True,
     )
-    model.config.use_cache = False  # required for gradient checkpointing
+    model.config.use_cache = False
 
     # Apply LoRA
     lora_config = LoraConfig(
@@ -149,9 +138,8 @@ def main():
         save_total_limit=2,
         gradient_checkpointing=True,
         gradient_checkpointing_kwargs={"use_reentrant": False},
-        deepspeed=args.deepspeed,
         report_to="none",
-        ddp_timeout=72000,
+        ddp_find_unused_parameters=False,
         dataloader_num_workers=2,
     )
 
