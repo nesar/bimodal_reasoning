@@ -41,9 +41,11 @@ This file tracks design decisions and future work for the bimodal (spectra + tex
   - Define a reward/objective function (redshift MAE + benchmark retention)
   - The criteria for "best model" needs to be decided (see below)
 - **Candidate objective:**
-  - Primary: minimize redshift MAE (domain task)
-  - Secondary: preserve ≥ X% of base-model benchmark scores (MMLU physics, GPQA, BBH)
+  - Criteria-1: minimize redshift MAE (domain task)
+  - Criteria-2: preserve ≥ X% of base-model benchmark scores (MMLU physics, GPQA, BBH)
   - Penalty: catastrophic forgetting (if scientific reasoning drops > 5% absolute)
+  - Make this work with eval-harness.
+  - Criteria-1 and Criteria-2 may counter each other. 
 - **Steps:**
   1. Install autoresearch: `pip install autoresearch` (or clone from GitHub)
   2. Define `autoresearch_config.yaml` with search space and objective
