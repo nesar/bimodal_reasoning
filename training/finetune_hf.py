@@ -90,6 +90,11 @@ def main():
     parser.add_argument("--local_rank", type=int, default=-1)
     args = parser.parse_args()
 
+    # Enable ZeRO-3 parameter partitioning during model init
+    if args.deepspeed:
+        from transformers.integrations import HfDeepSpeedConfig
+        dschf = HfDeepSpeedConfig(args.deepspeed)  # noqa: F841 — kept alive for side effects
+
     # Load tokenizer
     tokenizer = AutoTokenizer.from_pretrained(
         args.model_name_or_path, trust_remote_code=True
