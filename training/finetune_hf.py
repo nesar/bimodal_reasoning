@@ -110,7 +110,7 @@ def main():
         args.model_name_or_path,
         trust_remote_code=True,
         dtype=torch.bfloat16,
-        attn_implementation="flash_attention_2" if _has_flash_attn() else "eager",
+        attn_implementation="eager",
     )
     model.config.use_cache = False  # required for gradient checkpointing
 
