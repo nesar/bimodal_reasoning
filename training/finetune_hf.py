@@ -1,18 +1,19 @@
 #!/usr/bin/env python3
 """
-finetune_hf.py — QLoRA fine-tuning using HuggingFace Trainer + PEFT.
+finetune_hf.py — LoRA fine-tuning using HuggingFace Trainer + PEFT.
 
-Usage (single GPU, QLoRA):
+Usage (device_map="auto", for models that fit in combined GPU memory):
     python training/finetune_hf.py \
         --model_name_or_path openai/gpt-oss-20b \
         --dataset_path data/datasets/structured_verbalization/text2text.json \
         --output_dir output_models/gpt-oss-20b_structured
 
-Usage (multi-GPU, QLoRA + DDP):
-    torchrun --nproc_per_node 2 training/finetune_hf.py \
-        --model_name_or_path openai/gpt-oss-20b \
+Usage (DeepSpeed ZeRO-3, for 120B+ models across 8 GPUs):
+    deepspeed --num_gpus 8 training/finetune_hf.py \
+        --model_name_or_path openai/gpt-oss-120b \
         --dataset_path data/datasets/structured_verbalization/text2text.json \
-        --output_dir output_models/gpt-oss-20b_structured
+        --output_dir output_models/gpt-oss-120b_structured \
+        --deepspeed configs/ds_config_zero3.json
 """
 
 import argparse
@@ -76,8 +77,14 @@ def main():
     parser.add_argument("--block_size", type=int, default=512)
     parser.add_argument("--logging_steps", type=int, default=20)
     parser.add_argument("--save_steps", type=int, default=500)
+    parser.add_argument("--max_steps", type=int, default=-1,
+                        help="Override num_train_epochs with a fixed step count (for short test runs)")
+    parser.add_argument("--deepspeed", type=str, default=None,
+                        help="Path to DeepSpeed config JSON (e.g. configs/ds_config_zero3.json)")
     parser.add_argument("--local_rank", type=int, default=-1)
     args = parser.parse_args()
+
+    use_deepspeed = args.deepspeed is not None
 
     # Load tokenizer
     tokenizer = AutoTokenizer.from_pretrained(
@@ -93,19 +100,31 @@ def main():
     dataset = tokenize_instances(instances, tokenizer, args.block_size)
     print(f"  Tokenized: {len(dataset)} sequences")
 
-    # Load model with native MXFP4 quantization, sharded across available GPUs
-    # Reserve ~8GB per GPU for activations, gradients, and optimizer states
+    # Load model — two paths:
+    # 1. DeepSpeed ZeRO-3: load on CPU, let DeepSpeed partition across GPUs
+    # 2. No DeepSpeed: use device_map="auto" to shard via accelerate
     n_gpus = torch.cuda.device_count()
-    max_mem = {i: "32GiB" for i in range(n_gpus)}
-    print(f"Loading model {args.model_name_or_path} across {n_gpus} GPUs ...")
-    model = AutoModelForCausalLM.from_pretrained(
-        args.model_name_or_path,
-        trust_remote_code=True,
-        attn_implementation="eager",
-        device_map="auto",
-        max_memory=max_mem,
-        low_cpu_mem_usage=True,
-    )
+    print(f"Loading model {args.model_name_or_path} ({n_gpus} GPUs, deepspeed={use_deepspeed}) ...")
+
+    if use_deepspeed:
+        # ZeRO-3 handles sharding — do NOT use device_map="auto" (causes .to(device) conflict)
+        model = AutoModelForCausalLM.from_pretrained(
+            args.model_name_or_path,
+            trust_remote_code=True,
+            attn_implementation="eager",
+            torch_dtype=torch.bfloat16,
+            low_cpu_mem_usage=True,
+        )
+    else:
+        max_mem = {i: "32GiB" for i in range(n_gpus)}
+        model = AutoModelForCausalLM.from_pretrained(
+            args.model_name_or_path,
+            trust_remote_code=True,
+            attn_implementation="eager",
+            device_map="auto",
+            max_memory=max_mem,
+            low_cpu_mem_usage=True,
+        )
     model.config.use_cache = False
 
     # Apply LoRA
@@ -124,7 +143,7 @@ def main():
     collator = DataCollatorForLanguageModeling(tokenizer=tokenizer, mlm=False)
 
     # Training arguments
-    training_args = TrainingArguments(
+    training_kwargs = dict(
         output_dir=args.output_dir,
         num_train_epochs=args.num_train_epochs,
         per_device_train_batch_size=args.per_device_train_batch_size,
@@ -142,6 +161,11 @@ def main():
         ddp_find_unused_parameters=False,
         dataloader_num_workers=2,
     )
+    if args.max_steps > 0:
+        training_kwargs["max_steps"] = args.max_steps
+    if use_deepspeed:
+        training_kwargs["deepspeed"] = args.deepspeed
+    training_args = TrainingArguments(**training_kwargs)
 
     trainer = Trainer(
         model=model,
