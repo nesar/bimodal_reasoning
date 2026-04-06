@@ -29,6 +29,7 @@ from transformers import (
     Trainer,
     DataCollatorForLanguageModeling,
 )
+from transformers.integrations.deepspeed import HfDeepSpeedConfig
 
 
 def load_text2text(path: str) -> list[dict]:
@@ -101,18 +102,21 @@ def main():
     print(f"  Tokenized: {len(dataset)} sequences")
 
     # Load model — two paths:
-    # 1. DeepSpeed ZeRO-3: load on CPU, let DeepSpeed partition across GPUs
+    # 1. DeepSpeed ZeRO-3: use HfDeepSpeedConfig so from_pretrained partitions
+    #    weights across ranks during loading (avoids 8x full-model CPU OOM)
     # 2. No DeepSpeed: use device_map="auto" to shard via accelerate
     n_gpus = torch.cuda.device_count()
     print(f"Loading model {args.model_name_or_path} ({n_gpus} GPUs, deepspeed={use_deepspeed}) ...")
 
     if use_deepspeed:
-        # ZeRO-3 handles sharding — do NOT use device_map="auto" (causes .to(device) conflict)
+        # HfDeepSpeedConfig must be created BEFORE from_pretrained so that
+        # transformers detects ZeRO-3 and uses init_empty_weights + scatter
+        _dschf = HfDeepSpeedConfig(args.deepspeed)
         model = AutoModelForCausalLM.from_pretrained(
             args.model_name_or_path,
             trust_remote_code=True,
             attn_implementation="eager",
-            torch_dtype=torch.bfloat16,
+            dtype=torch.bfloat16,
             low_cpu_mem_usage=True,
         )
     else:
