@@ -29,6 +29,7 @@ from transformers import (
     Trainer,
     DataCollatorForLanguageModeling,
 )
+import deepspeed
 from transformers.integrations.deepspeed import HfDeepSpeedConfig
 
 
@@ -87,6 +88,11 @@ def main():
 
     use_deepspeed = args.deepspeed is not None
 
+    if use_deepspeed:
+        # Initialize distributed early so HfDeepSpeedConfig sees correct world_size
+        if not torch.distributed.is_initialized():
+            deepspeed.init_distributed()
+
     # Load tokenizer
     tokenizer = AutoTokenizer.from_pretrained(
         args.model_name_or_path, trust_remote_code=True
@@ -109,8 +115,9 @@ def main():
     print(f"Loading model {args.model_name_or_path} ({n_gpus} GPUs, deepspeed={use_deepspeed}) ...")
 
     if use_deepspeed:
-        # HfDeepSpeedConfig must be created BEFORE from_pretrained so that
-        # transformers detects ZeRO-3 and uses init_empty_weights + scatter
+        # HfDeepSpeedConfig registers the DS config so from_pretrained detects
+        # ZeRO-3 and uses init_empty_weights + shard-by-shard loading.
+        # Must be created BEFORE from_pretrained; kept alive until Trainer init.
         _dschf = HfDeepSpeedConfig(args.deepspeed)
         model = AutoModelForCausalLM.from_pretrained(
             args.model_name_or_path,
