@@ -28,6 +28,7 @@ export HUGGINGFACE_HUB_CACHE=/lcrc/project/cosmo_ai/nramachandra/hf_cache/hub
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 export C_INCLUDE_PATH=/home/nramachandra/anaconda3/envs/eval-harness/include/python3.10
 export CPATH=/home/nramachandra/anaconda3/envs/eval-harness/include/python3.10
+export PYTHONPATH=/lcrc/project/solitons/nramachandra/lm_eval_pkg:${PYTHONPATH:-}
 
 BASE_DIR="/lcrc/project/cosmo_ai/nramachandra/Projects/SpecFoundation/bimodal_reasoning"
 BIMODAL_PYTHON="/lcrc/project/cosmo_ai/nramachandra/envs/bimodal/bin/python"
@@ -146,6 +147,8 @@ JOB_START_EPOCH=$(date -d "$TIMESTAMP" +%s 2>/dev/null || date +%s)
 MAX_DURATION_SEC=$((8 * 3600))  # 8 hours
 
 run_count=0
+consecutive_fails=0
+MAX_CONSECUTIVE_FAILS=3
 cd "$AR_DIR"
 
 # Create results.tsv header if it doesn't exist
@@ -178,12 +181,21 @@ while true; do
         PEAK_GB=$(echo "scale=1; ${PEAK_VRAM:-0} / 1024" | bc 2>/dev/null || echo "0.0")
         log "Phase 5: Run #${run_count} — val_bpb=${VAL_BPB}, vram=${PEAK_GB}GB"
         printf "${run_count}\t${VAL_BPB}\t${PEAK_GB}\tkeep\tbaseline run #${run_count}\n" >> results.tsv
+        consecutive_fails=0
     elif [[ $EXIT_CODE -eq 124 ]]; then
         log "Phase 5: Run #${run_count} — TIMEOUT (killed after 600s)"
         printf "${run_count}\t0.0\t0.0\tcrash\ttimeout\n" >> results.tsv
+        consecutive_fails=$((consecutive_fails + 1))
     else
         log "Phase 5: Run #${run_count} — FAILED (exit $EXIT_CODE, see $RUN_LOG)"
         printf "${run_count}\t0.0\t0.0\tcrash\texit code ${EXIT_CODE}\n" >> results.tsv
+        consecutive_fails=$((consecutive_fails + 1))
+    fi
+
+    # Crash-loop breaker: stop after N consecutive failures
+    if [[ $consecutive_fails -ge $MAX_CONSECUTIVE_FAILS ]]; then
+        log "Phase 5: ${MAX_CONSECUTIVE_FAILS} consecutive failures. Stopping autoresearch loop."
+        break
     fi
 
     # Copy results.tsv to overnight results

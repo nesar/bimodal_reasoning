@@ -81,33 +81,82 @@ def load_base_model(base_model_id: str):
 def extract_redshift(text: str) -> float:
     """Try multiple patterns to extract a numeric redshift from generated text."""
     patterns = [
-        r"[Rr]edshift[:\s]*\[?\s*([\d.]+)",
-        r"z\s*=\s*([\d.]+)",
-        r"([\d]+\.[\d]+)",
+        r"[Rr]edshift[:\s]*z?\s*=?\s*([\d.]+)",       # "Redshift: z = 0.351" or "Redshift:0.058"
+        r"\[?\s*z\s*=\s*([\d.]+)",                      # "[z=0.030" or "z = 0.35"
+        r"z_?\s*[:=]\s*([\d.]+)",                        # "z:0.35" or "z=0.35"
+        r"(?:^|\s)(0\.\d{2,6})(?:\s|,|$)",              # standalone "0.3510" (common redshift range)
     ]
     for pat in patterns:
         m = re.search(pat, text)
         if m:
             try:
-                return float(m.group(1))
+                val = float(m.group(1))
+                if val < 5.0:  # reasonable redshift range
+                    return val
             except ValueError:
                 continue
     return float("nan")
 
 
-def run_generation(model, tokenizer, instances, max_new_tokens=32):
+def trim_spectrum_to_fit(prompt: str, tokenizer, max_prompt_tokens: int = 440) -> str:
+    """Trim the spectrum portion so the full prompt (including closing ']') fits in max_prompt_tokens.
+
+    The model was trained with block_size=512 and needs to see the spectrum's
+    closing ']' to know when to start generating the answer. Simple truncation
+    cuts the spectrum mid-stream and the model just continues generating digits.
+    Instead, we remove flux values from the middle of the spectrum to preserve
+    the header metadata and the closing bracket.
+    """
+    # Check if it already fits
+    ids = tokenizer(prompt, truncation=False)["input_ids"]
+    if len(ids) <= max_prompt_tokens:
+        return prompt
+
+    # Find the spectrum portion
+    spec_start = prompt.find("Spectrum: [")
+    spec_end = prompt.rfind("]")
+    if spec_start == -1 or spec_end == -1:
+        # No spectrum found, just truncate
+        return tokenizer.decode(tokenizer(prompt, truncation=True,
+                                          max_length=max_prompt_tokens)["input_ids"],
+                                skip_special_tokens=True)
+
+    header = prompt[:spec_start + len("Spectrum: [")]
+    trailer = prompt[spec_end:]  # includes ']' and anything after
+    flux_str = prompt[spec_start + len("Spectrum: ["):spec_end]
+    flux_values = flux_str.split(",")
+
+    # Binary search for how many flux values to keep (from both ends)
+    lo, hi = 10, len(flux_values)
+    while lo < hi:
+        mid = (lo + hi + 1) // 2
+        half = mid // 2
+        trimmed_flux = ",".join(flux_values[:half] + flux_values[-half:])
+        candidate = header + trimmed_flux + trailer + "\n"
+        n_tokens = len(tokenizer(candidate, truncation=False)["input_ids"])
+        if n_tokens <= max_prompt_tokens:
+            lo = mid
+        else:
+            hi = mid - 1
+
+    half = lo // 2
+    trimmed_flux = ",".join(flux_values[:half] + flux_values[-half:])
+    return header + trimmed_flux + trailer + "\n"
+
+
+def run_generation(model, tokenizer, instances, max_new_tokens=80):
     z_true_list = []
     z_pred_list = []
     raw_outputs = []
 
     for i, inst in enumerate(instances):
-        prompt = inst["input"] + "\n"
+        prompt = trim_spectrum_to_fit(inst["input"] + "\n", tokenizer, max_prompt_tokens=440)
         true_output = inst["output"]
 
         z_true = extract_redshift(true_output)
         z_true_list.append(z_true)
 
-        input_ids = tokenizer(prompt, return_tensors="pt", truncation=True, max_length=480)
+        input_ids = tokenizer(prompt, return_tensors="pt", truncation=True, max_length=440)
         input_ids = {k: v.to(model.device) for k, v in input_ids.items()}
 
         with torch.no_grad():
