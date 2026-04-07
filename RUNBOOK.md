@@ -283,23 +283,37 @@ FLOPs:     3.67e17
 Adapter:   16 MB (output_models/gpt-oss-20b_structured/)
 ```
 
-### 6.2 GPT-OSS-120B (50-step validation, 2026-04-05)
+### 6.2 GPT-OSS-120B (completed 2026-04-05)
 
 ```
-Training:  50 steps, 7.7 min
-Loss:      1.69 -> 1.42
-Grad norm: 0.18 -> 0.085 (very stable)
+Training:  2 epochs, 736 steps, 111 min (6656s)
+Loss:      1.69 -> 1.09 (min 1.074 at step 620)
+Grad norm: 0.14 -> 0.18 (very stable throughout)
 Speed:     9.0 s/step
+FLOPs:     2.10e18
 GPU mem:   21-38 GB per GPU (8 GPUs)
-RAM:       32 GB (after model loaded to GPUs)
+Adapter:   23 MB (output_models/gpt-oss-120b_structured/)
 ```
 
-The 120B model starts at a lower loss than the 20B's initial loss (1.69 vs 2.14),
-demonstrating the larger model's advantage on this domain task.
+The 120B model starts at a lower loss (1.69 vs 2.14) and converges to
+essentially the same final loss as the 20B (~1.08). This suggests the
+**dataset size (2939 samples) is the bottleneck**, not model capacity.
+Both models plateau around loss 1.08 by step 620.
 
-### 6.3 GPT-OSS-120B (full 2-epoch run, 2026-04-05, in progress)
+### 6.3 AutoResearch baseline (completed 2026-04-06)
 
-Same command as Section 4.4. Expected ~1.8 hours.
+```
+val_bpb:          1.093686
+Training time:    300.5s (5 min budget)
+Peak VRAM:        22.8 GB (single A100-40GB)
+MFU:              15.5%
+Total tokens:     198.2M
+Steps:            378
+Parameters:       50.3M (depth=8)
+```
+
+Baseline on FineWeb-Edu data, training a small GPT from scratch.
+See Section 7 for details.
 
 ---
 
@@ -311,28 +325,96 @@ Karpathy's framework where an AI agent autonomously iterates on a `train.py`
 file, running 5-minute training experiments in a loop, keeping improvements.
 It trains small GPT models **from scratch** (not fine-tuning a pretrained model).
 
-### 7.2 Environment (ready)
+- Repo: https://github.com/karpathy/autoresearch
+- The agent modifies only `train.py`. `prepare.py` is read-only.
+- Objective: minimize `val_bpb` (bits per byte on validation set).
+- Data: FineWeb-Edu (educational web text), tokenized with BPE (8192 vocab).
+
+### 7.2 Environment
 
 | Component | Value |
 |-----------|-------|
 | Repo      | `/lcrc/project/cosmo_ai/nramachandra/Projects/SpecFoundation/autoresearch/` |
-| Venv      | `/lcrc/project/solitons/nramachandra/envs/autoresearch` |
+| Python    | `/lcrc/project/solitons/nramachandra/envs/autoresearch/bin/python` |
 | PyTorch   | 2.9.1+cu128 |
-| Data      | `~/.cache/autoresearch/data/` (9 shards, FineWeb-Edu) |
+| Data      | `~/.cache/autoresearch/data/` (9 shards) |
 | Tokenizer | `~/.cache/autoresearch/tokenizer/` |
 
-### 7.3 Running the baseline
+**The venv is on the solitons fileset** because cosmo_ai is near its GPFS quota.
+
+### 7.3 LCRC-specific workarounds
+
+Three issues must be addressed on LCRC:
+
+1. **`Python.h` not found** — `torch.compile` (inductor) needs Python dev
+   headers. The system Python 3.10 doesn't have `python3.10-dev` installed
+   and we can't `sudo apt install`. Fix: borrow headers from the conda
+   `eval-harness` env:
+   ```bash
+   export C_INCLUDE_PATH=/home/nramachandra/anaconda3/envs/eval-harness/include/python3.10
+   export CPATH=/home/nramachandra/anaconda3/envs/eval-harness/include/python3.10
+   ```
+
+2. **HF cache path** — the `kernels` package (used for Flash Attention 3)
+   downloads to the default HF cache, which may be on a full fileset. Fix:
+   ```bash
+   export HF_HOME=/lcrc/project/cosmo_ai/nramachandra/hf_cache
+   export HUGGINGFACE_HUB_CACHE=/lcrc/project/cosmo_ai/nramachandra/hf_cache/hub
+   ```
+
+3. **GPU OOM with default batch size** — the default `DEVICE_BATCH_SIZE=128`
+   (with `MAX_SEQ_LEN=2048`) needs ~38 GB, which OOMs on A100-40GB after
+   `torch.compile` overhead. Fix: set `DEVICE_BATCH_SIZE=64` in `train.py`.
+   This doubles gradient accumulation steps (2 -> 4) while keeping the same
+   effective batch size (524K tokens).
+
+### 7.4 Running the baseline
 
 ```bash
-source /lcrc/project/solitons/nramachandra/envs/autoresearch/bin/activate
-cd /lcrc/project/cosmo_ai/nramachandra/Projects/SpecFoundation/autoresearch
-python train.py
+AR_DIR=/lcrc/project/cosmo_ai/nramachandra/Projects/SpecFoundation/autoresearch
+AR_PYTHON=/lcrc/project/solitons/nramachandra/envs/autoresearch/bin/python
+
+cd "$AR_DIR" && \
+TMPDIR=/tmp \
+HF_HOME=/lcrc/project/cosmo_ai/nramachandra/hf_cache \
+HUGGINGFACE_HUB_CACHE=/lcrc/project/cosmo_ai/nramachandra/hf_cache/hub \
+C_INCLUDE_PATH=/home/nramachandra/anaconda3/envs/eval-harness/include/python3.10 \
+CPATH=/home/nramachandra/anaconda3/envs/eval-harness/include/python3.10 \
+PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True \
+$AR_PYTHON train.py > run_baseline.log 2>&1
 ```
 
-This trains a small GPT (~50M params, depth=8) for 5 minutes on FineWeb-Edu
-data, reporting `val_bpb` at the end.
+**Baseline result (A100-40GB, 2026-04-06):**
+```
+val_bpb:       1.093686
+steps:         378
+params:        50.3M (depth=8, dim=512)
+peak_vram:     22.8 GB
+mfu:           15.5%
+tokens:        198.2M in 300s
+```
 
-### 7.4 Adapting for spectral domain
+Extract the key metric:
+```bash
+grep "^val_bpb:" run_baseline.log
+```
+
+### 7.5 Running the agent loop
+
+After verifying the baseline, the autoresearch agent loop works as follows
+(see `program.md` in the autoresearch repo for the full protocol):
+
+1. Create a branch: `git checkout -b autoresearch/<tag>`
+2. Run `train.py`, redirect output to `run.log`
+3. Read results: `grep "^val_bpb:\|^peak_vram_mb:" run.log`
+4. If improved: keep the commit, record in `results.tsv`
+5. If worse: `git reset --hard` to previous best
+6. Repeat indefinitely (agent is autonomous)
+
+Each experiment takes ~6 minutes (5 min training + 1 min startup/eval).
+Overnight (~8 hours) yields ~80 experiments.
+
+### 7.6 Adapting for spectral domain (future)
 
 The autoresearch approach could be adapted to:
 1. Replace FineWeb-Edu data with our spectral text2text dataset
@@ -344,7 +426,65 @@ objective function, which are currently read-only in the autoresearch framework.
 
 ---
 
-## 8. Plotting
+## 8. Overnight Job (`run_overnight.sh`)
+
+Self-contained script that runs all evaluation and autoresearch in sequence.
+Designed to run unattended for 8-10 hours via `nohup`.
+
+### 8.1 What it does
+
+| Phase | Task | Est. Time |
+|-------|------|-----------|
+| 0 | Setup, validate GPUs/files | 2 min |
+| 1 | Redshift eval: 120B fine-tuned (200 samples) | 30 min |
+| 2 | Redshift eval: 20B fine-tuned (200 samples) | 15 min |
+| 3 | Redshift eval: 120B base (100 samples, for comparison) | 30 min |
+| 4 | Comprehensive "money plot" + summary | 2 min |
+| 5 | Autoresearch loop (fills remaining time) | 5-7 hours |
+| 6 | Autoresearch progress plot | 2 min |
+
+### 8.2 Launch
+
+```bash
+cd /lcrc/project/cosmo_ai/nramachandra/Projects/SpecFoundation/bimodal_reasoning
+nohup bash run_overnight.sh > overnight.log 2>&1 &
+```
+
+### 8.3 Monitor
+
+```bash
+# Live status
+tail -f overnight_results/latest/STATUS
+
+# Full log
+tail -f overnight.log
+
+# Check which phase is running
+cat overnight_results/latest/STATUS | tail -5
+```
+
+### 8.4 Output structure
+
+```
+overnight_results/<timestamp>/
+├── STATUS                          # Phase-by-phase progress log
+├── gpu_info.txt                    # GPU inventory at start
+├── phase1_eval_120b_ft/            # 120B fine-tuned redshift eval
+│   ├── metrics.json                # MAE, median AE, outlier fraction
+│   ├── redshift_scatter.png        # True vs predicted plot
+│   └── raw_predictions.jsonl       # Per-instance predictions
+├── phase2_eval_20b_ft/             # 20B fine-tuned redshift eval
+├── phase3_eval_120b_base/          # 120B base model (no adapter)
+├── plots_summary/                  # Copy of money plot
+├── autoresearch/                   # All autoresearch run logs
+│   ├── results.tsv                 # Tab-separated experiment log
+│   ├── run_1.log ... run_N.log     # Individual run outputs
+└── autoresearch_progress.png       # Karpathy-style progress plot
+```
+
+---
+
+## 9. Plots
 
 All plots use the publication style defined in `analysis/plots.py:setup_style()`.
 
@@ -371,7 +511,7 @@ python analysis/plot_training_run.py \
 
 ---
 
-## 9. Evaluation (post-training)
+## 10. Evaluation (post-training)
 
 ### 9.1 Redshift prediction
 
@@ -391,7 +531,7 @@ bash eval/lm_harness_eval.sh \
 
 ---
 
-## 10. Troubleshooting
+## 11. Troubleshooting
 
 | Symptom | Cause | Fix |
 |---------|-------|-----|
@@ -406,7 +546,7 @@ bash eval/lm_harness_eval.sh \
 
 ---
 
-## 11. Reproduction Checklist
+## 12. Reproduction Checklist
 
 To reproduce the full pipeline from scratch:
 
