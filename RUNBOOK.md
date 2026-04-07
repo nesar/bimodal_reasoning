@@ -300,6 +300,22 @@ essentially the same final loss as the 20B (~1.08). This suggests the
 **dataset size (2939 samples) is the bottleneck**, not model capacity.
 Both models plateau around loss 1.08 by step 620.
 
+**Important caveat — generation quality:** The converged CE loss does NOT
+guarantee correct structured output. Redshift eval (200 samples) on the
+120B fine-tuned model produced only 22/200 (11%) valid predictions. Most
+outputs were digit continuations or free-text "Interpretation: ..." responses
+instead of the expected `Redshift: z = 0.35` format.
+
+Root cause: the training `block_size=512` truncates `input + output` to 512
+tokens. At inference, the spectrum alone is ~500+ tokens, so the model never
+sees the closing `]` bracket. Spectrum trimming (removing flux values from the
+middle) helps partially, but the model saw untrimmed spectra during training.
+
+**Action items for next iteration:**
+- Retrain with trimmed spectra (or shorter tokenization strategy like `patch_mean`)
+- Or increase `block_size` to 1024 (needs more GPU memory per sample)
+- Or use a tokenization strategy with fewer tokens per spectrum
+
 ### 6.3 AutoResearch baseline (completed 2026-04-06)
 
 ```

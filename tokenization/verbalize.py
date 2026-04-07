@@ -86,22 +86,40 @@ def verbalize_output(record: GalaxyRecord) -> str:
     )
 
 
+def verbalize_output_compact(record: GalaxyRecord) -> str:
+    """
+    Machine-parseable compact output: numbers first, always the same format.
+
+    Format: [z=0.3510|mass=11.18|age=10.4|Z=0.461]
+    Regex:  z=([\d.]+)  mass=([\d.]+)  age=([\d.]+)  Z=([\d.]+)
+    """
+    return (
+        f"[z={record.z:.4f}|mass={record.log_mass:.2f}"
+        f"|age={record.age_gyr:.1f}|Z={record.metallicity:.3f}]"
+    )
+
+
 # ---------------------------------------------------------------------------
 # Fine-tuning pair builder
 # ---------------------------------------------------------------------------
 
-def make_ft_pair(record: GalaxyRecord, spectrum_series: Optional[str] = None) -> dict:
+def make_ft_pair(record: GalaxyRecord, spectrum_series: Optional[str] = None,
+                 compact: bool = False) -> dict:
     """
     Build a {"input": ..., "output": ...} fine-tuning instance.
 
     Input  = object metadata + spectrum tokens (all targets masked)
-    Output = all four physical properties in structured text
+    Output = physical properties (compact or verbose format)
+
+    Args:
+        compact: if True, use machine-parseable [z=...|mass=...|age=...|Z=...] format
     """
     context = verbalize_input(record)
     if spectrum_series is not None:
         context += f"\nSpectrum: [ {spectrum_series}]"
 
+    output_fn = verbalize_output_compact if compact else verbalize_output
     return {
         "input": context,
-        "output": verbalize_output(record),
+        "output": output_fn(record),
     }
