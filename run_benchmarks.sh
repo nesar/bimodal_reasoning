@@ -41,7 +41,7 @@ mkdir -p "$RESULTS_DIR/benchmark_base_20b"
 
 $LM_EVAL \
     --model hf \
-    --model_args "pretrained=openai/gpt-oss-20b,trust_remote_code=True,dtype=bfloat16,device_map=auto,attn_implementation=eager" \
+    --model_args "pretrained=openai/gpt-oss-20b,trust_remote_code=True,dtype=bfloat16,parallelize=True,attn_implementation=eager" \
     --tasks "$TASKS" \
     --batch_size 1 \
     --num_fewshot 0 \
@@ -60,7 +60,7 @@ if [[ -d "$ADAPTER_COMPACT" ]]; then
 
     $LM_EVAL \
         --model hf \
-        --model_args "pretrained=openai/gpt-oss-20b,peft=$ADAPTER_COMPACT,trust_remote_code=True,dtype=bfloat16,device_map=auto,attn_implementation=eager" \
+        --model_args "pretrained=openai/gpt-oss-20b,peft=$ADAPTER_COMPACT,trust_remote_code=True,dtype=bfloat16,parallelize=True,attn_implementation=eager" \
         --tasks "$TASKS" \
         --batch_size 1 \
         --num_fewshot 0 \
@@ -72,6 +72,47 @@ if [[ -d "$ADAPTER_COMPACT" ]]; then
     }
 else
     log "Benchmark: SKIPPED — No compact adapter found at $ADAPTER_COMPACT"
+fi
+
+# ── Benchmark 3: Base 120B model ─────────────────────────────────────────
+
+log "Benchmark: START — Base gpt-oss-120b"
+mkdir -p "$RESULTS_DIR/benchmark_base_120b"
+
+$LM_EVAL \
+    --model hf \
+    --model_args "pretrained=openai/gpt-oss-120b,trust_remote_code=True,dtype=bfloat16,parallelize=True,attn_implementation=eager" \
+    --tasks "$TASKS" \
+    --batch_size 1 \
+    --num_fewshot 0 \
+    --output_path "$RESULTS_DIR/benchmark_base_120b" \
+    > "$RESULTS_DIR/benchmark_base_120b.log" 2>&1 && {
+    log "Benchmark: DONE — Base 120b results in benchmark_base_120b/"
+} || {
+    log "Benchmark: FAILED — Base 120b, see benchmark_base_120b.log"
+}
+
+# ── Benchmark 4: Fine-tuned 120B model (structured) ──────────────────────
+
+ADAPTER_120B="$BASE_DIR/output_models/gpt-oss-120b_structured"
+if [[ -d "$ADAPTER_120B" ]]; then
+    log "Benchmark: START — Fine-tuned gpt-oss-120b (structured)"
+    mkdir -p "$RESULTS_DIR/benchmark_ft_120b_structured"
+
+    $LM_EVAL \
+        --model hf \
+        --model_args "pretrained=openai/gpt-oss-120b,peft=$ADAPTER_120B,trust_remote_code=True,dtype=bfloat16,parallelize=True,attn_implementation=eager" \
+        --tasks "$TASKS" \
+        --batch_size 1 \
+        --num_fewshot 0 \
+        --output_path "$RESULTS_DIR/benchmark_ft_120b_structured" \
+        > "$RESULTS_DIR/benchmark_ft_120b_structured.log" 2>&1 && {
+        log "Benchmark: DONE — Fine-tuned 120b in benchmark_ft_120b_structured/"
+    } || {
+        log "Benchmark: FAILED — Fine-tuned 120b, see benchmark_ft_120b_structured.log"
+    }
+else
+    log "Benchmark: SKIPPED — No structured adapter found at $ADAPTER_120B"
 fi
 
 # ── Summary: extract and compare scores ──────────────────────────────────
@@ -97,31 +138,57 @@ def extract_scores(benchmark_dir):
                 scores[short_name] = round(float(acc) * 100, 1)
     return scores
 
-base_scores = extract_scores(os.path.join(results_dir, 'benchmark_base_20b'))
-ft_scores = extract_scores(os.path.join(results_dir, 'benchmark_ft_20b_compact'))
+model_runs = [
+    ('base_20b',   'benchmark_base_20b'),
+    ('ft_20b',     'benchmark_ft_20b_compact'),
+    ('base_120b',  'benchmark_base_120b'),
+    ('ft_120b',    'benchmark_ft_120b_structured'),
+]
 
-if base_scores and ft_scores:
-    tasks = sorted(set(base_scores.keys()) & set(ft_scores.keys()))
-    base_vals = [base_scores[t] for t in tasks]
-    ft_vals = [ft_scores[t] for t in tasks]
+all_scores = {}
+for label, subdir in model_runs:
+    d = os.path.join(results_dir, subdir)
+    if os.path.isdir(d):
+        s = extract_scores(d)
+        if s:
+            all_scores[label] = s
 
-    # Save comparison JSON
-    comparison = {
-        'tasks': {t: {'base': b, 'finetuned': f} for t, b, f in zip(tasks, base_vals, ft_vals)}
-    }
+if len(all_scores) >= 2:
+    all_tasks = sorted(set().union(*all_scores.values()))
+    comparison = {}
+    for t in all_tasks:
+        comparison[t] = {label: scores.get(t) for label, scores in all_scores.items()}
     with open(os.path.join(results_dir, 'benchmark_comparison.json'), 'w') as fh:
-        json.dump(comparison, fh, indent=2)
+        json.dump({'tasks': comparison}, fh, indent=2)
 
-    # Plot
-    fig = plot_benchmark_comparison(tasks, base_vals, ft_vals,
-                                     save_path=os.path.join(results_dir, 'benchmark_comparison.png'))
-    fig.savefig('plots/summary/benchmark_comparison.png')
-    print(f'Benchmark comparison saved. Tasks: {len(tasks)}')
-    for t, b, f in zip(tasks, base_vals, ft_vals):
-        delta = f - b
-        print(f'  {t:30s}  base={b:.1f}%  ft={f:.1f}%  delta={delta:+.1f}%')
+    # Print summary table
+    header = f\"{'task':30s}\" + ''.join(f'  {label:>10s}' for label in all_scores)
+    print(header)
+    print('-' * len(header))
+    for t in all_tasks:
+        row = f'{t:30s}'
+        for label in all_scores:
+            v = all_scores[label].get(t)
+            row += f'  {v:10.1f}' if v is not None else f'  {\"N/A\":>10s}'
+        print(row)
+
+    # Plot 20B comparison if both base and ft available
+    if 'base_20b' in all_scores and 'ft_20b' in all_scores:
+        tasks_20b = sorted(set(all_scores['base_20b'].keys()) & set(all_scores['ft_20b'].keys()))
+        base_vals = [all_scores['base_20b'][t] for t in tasks_20b]
+        ft_vals = [all_scores['ft_20b'][t] for t in tasks_20b]
+        fig = plot_benchmark_comparison(tasks_20b, base_vals, ft_vals,
+                                         save_path=os.path.join(results_dir, 'benchmark_comparison_20b.png'))
+
+    # Plot 120B comparison if both base and ft available
+    if 'base_120b' in all_scores and 'ft_120b' in all_scores:
+        tasks_120b = sorted(set(all_scores['base_120b'].keys()) & set(all_scores['ft_120b'].keys()))
+        base_vals = [all_scores['base_120b'][t] for t in tasks_120b]
+        ft_vals = [all_scores['ft_120b'][t] for t in tasks_120b]
+        fig = plot_benchmark_comparison(tasks_120b, base_vals, ft_vals,
+                                         save_path=os.path.join(results_dir, 'benchmark_comparison_120b.png'))
 else:
-    print(f'Could not extract scores. base={len(base_scores)} ft={len(ft_scores)}')
+    print(f'Not enough results for comparison. Found: {list(all_scores.keys())}')
 " > "$RESULTS_DIR/benchmark_summary.log" 2>&1
 
 cat "$RESULTS_DIR/benchmark_summary.log" | tee -a "$RESULTS_DIR/STATUS"
