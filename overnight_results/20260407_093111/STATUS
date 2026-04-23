@@ -56,3 +56,8 @@ Could not extract scores. base=0 ft=0
 [2026-04-23 09:04:45] Benchmark: START — Base gpt-oss-120b
 [2026-04-23 09:12:40] Benchmark: FAILED — Base 120b, see benchmark_base_120b.log
 [2026-04-23 09:12:40] Benchmark: START — Fine-tuned gpt-oss-120b (structured)
+[2026-04-23 09:20:21] Benchmark: FAILED — Fine-tuned 120b, see benchmark_ft_120b_structured.log
+[2026-04-23 09:20:21] Benchmark: Generating comparison
+Not enough results for comparison. Found: []
+[2026-04-23 09:20:34] Benchmark: ALL DONE
+[2026-04-23 09:29:19] Benchmark: START — Base gpt-oss-20b
