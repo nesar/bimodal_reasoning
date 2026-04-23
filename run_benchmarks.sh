@@ -33,6 +33,8 @@ fi
 
 TASKS="mmlu_college_physics,mmlu_high_school_physics,mmlu_astronomy,leaderboard_gpqa,leaderboard_bbh"
 ADAPTER_COMPACT="$BASE_DIR/output_models/gpt-oss-20b_compact"
+NUM_GPUS=$(nvidia-smi -L 2>/dev/null | wc -l)
+log "Detected $NUM_GPUS GPUs"
 
 # ── Benchmark 1: Base model ──────────────────────────────────────────────
 
@@ -41,7 +43,7 @@ mkdir -p "$RESULTS_DIR/benchmark_base_20b"
 
 $LM_EVAL \
     --model hf \
-    --model_args "pretrained=openai/gpt-oss-20b,trust_remote_code=True,dtype=bfloat16,parallelize=True,attn_implementation=eager" \
+    --model_args "pretrained=openai/gpt-oss-20b,trust_remote_code=True,dtype=bfloat16,parallelize=True,max_memory_per_gpu=20GiB,gpus=$NUM_GPUS,attn_implementation=eager" \
     --tasks "$TASKS" \
     --batch_size 1 \
     --num_fewshot 0 \
@@ -60,7 +62,7 @@ if [[ -d "$ADAPTER_COMPACT" ]]; then
 
     $LM_EVAL \
         --model hf \
-        --model_args "pretrained=openai/gpt-oss-20b,peft=$ADAPTER_COMPACT,trust_remote_code=True,dtype=bfloat16,parallelize=True,attn_implementation=eager" \
+        --model_args "pretrained=openai/gpt-oss-20b,peft=$ADAPTER_COMPACT,trust_remote_code=True,dtype=bfloat16,parallelize=True,max_memory_per_gpu=20GiB,gpus=$NUM_GPUS,attn_implementation=eager" \
         --tasks "$TASKS" \
         --batch_size 1 \
         --num_fewshot 0 \
@@ -81,7 +83,7 @@ mkdir -p "$RESULTS_DIR/benchmark_base_120b"
 
 $LM_EVAL \
     --model hf \
-    --model_args "pretrained=openai/gpt-oss-120b,trust_remote_code=True,dtype=bfloat16,parallelize=True,attn_implementation=eager" \
+    --model_args "pretrained=openai/gpt-oss-120b,trust_remote_code=True,dtype=bfloat16,parallelize=True,max_memory_per_gpu=20GiB,gpus=$NUM_GPUS,attn_implementation=eager" \
     --tasks "$TASKS" \
     --batch_size 1 \
     --num_fewshot 0 \
@@ -101,7 +103,7 @@ if [[ -d "$ADAPTER_120B" ]]; then
 
     $LM_EVAL \
         --model hf \
-        --model_args "pretrained=openai/gpt-oss-120b,peft=$ADAPTER_120B,trust_remote_code=True,dtype=bfloat16,parallelize=True,attn_implementation=eager" \
+        --model_args "pretrained=openai/gpt-oss-120b,peft=$ADAPTER_120B,trust_remote_code=True,dtype=bfloat16,parallelize=True,max_memory_per_gpu=20GiB,gpus=$NUM_GPUS,attn_implementation=eager" \
         --tasks "$TASKS" \
         --batch_size 1 \
         --num_fewshot 0 \
