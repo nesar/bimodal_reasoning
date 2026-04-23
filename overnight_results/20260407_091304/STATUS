@@ -1,6 +1,0 @@
-[2026-04-07 09:13:04] === OVERNIGHT JOB STARTED ===
-[2026-04-07 09:13:04] Results dir: /lcrc/project/cosmo_ai/nramachandra/Projects/SpecFoundation/bimodal_reasoning/overnight_results/20260407_091304
-[2026-04-07 09:13:04] Timestamp: 20260407_091304
-[2026-04-07 09:13:04] GPUs: 8 available
-[2026-04-07 09:13:04] Phase 0: Validation passed
-[2026-04-07 09:13:04] Phase 1: START — 120B fine-tuned redshift eval

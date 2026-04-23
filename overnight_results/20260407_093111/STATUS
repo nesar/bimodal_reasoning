@@ -1,0 +1,51 @@
+[2026-04-07 09:31:11] === OVERNIGHT JOB STARTED ===
+[2026-04-07 09:31:11] Results dir: /lcrc/project/cosmo_ai/nramachandra/Projects/SpecFoundation/bimodal_reasoning/overnight_results/20260407_093111
+[2026-04-07 09:31:11] GPUs: 8 available
+[2026-04-07 09:31:11] Phase 0: Validation passed
+[2026-04-07 09:31:11] Phase 1: START — Retrain 20B with compact dataset
+[2026-04-07 10:24:11] Phase 1: DONE — train_loss=
+[2026-04-07 10:24:11] Phase 2: START — Eval 20B compact on redshift prediction
+[2026-04-07 10:39:30] Phase 2: DONE — Metrics: MAE=0.0705, MedianAE=0.0508, Valid=200/200, Outliers=21.50%
+[2026-04-07 10:39:30] Phase 3: START — Eval 20B old model (original dataset)
+[2026-04-07 10:54:38] Phase 3: DONE — Metrics: MAE=0.2860, MedianAE=0.2798, Valid=139/200, Outliers=89.21%
+[2026-04-07 10:54:38] Phase 4: START — Generating plots
+[2026-04-07 10:54:53] Phase 4: DONE — plots in plots/summary/
+[2026-04-07 10:54:53] Phase 5: START — Autoresearch loop
+[2026-04-07 10:54:53] Phase 5: Autoresearch run #1 (28800s remaining)
+[2026-04-07 10:55:00] Phase 5: Run #1 — FAILED (exit 1)
+[2026-04-07 10:55:00] Phase 5: Autoresearch run #2 (28793s remaining)
+[2026-04-07 10:55:01] Phase 5: Run #2 — FAILED (exit 1)
+[2026-04-07 10:55:01] Phase 5: Autoresearch run #3 (28792s remaining)
+[2026-04-07 10:55:02] Phase 5: Run #3 — FAILED (exit 1)
+[2026-04-07 10:55:02] Phase 5: 3 consecutive failures. Stopping.
+[2026-04-07 10:55:02] Phase 6: START — Autoresearch summary plot
+[2026-04-07 10:55:03] Phase 6: DONE
+[2026-04-07 10:55:03] === OVERNIGHT JOB COMPLETE ===
+[2026-04-07 10:55:03] Total time: 0 minutes
+[2026-04-07 10:55:04] 
+[2026-04-07 10:55:04] Results:
+[2026-04-07 10:55:04]   GPT-OSS-20B (compact) — MAE: 0.0705115 Valid: 200
+[2026-04-07 10:55:04]   GPT-OSS-20B (original) — MAE: 0.2859906474820144 Valid: 139
+[2026-04-07 10:55:04] Autoresearch runs: 3
+[2026-04-07 10:55:04] Autoresearch best val_bpb: 0
+[2026-04-07 10:55:33] Benchmark: START — Base gpt-oss-20b
+[2026-04-07 10:55:33] Benchmark: FAILED — Base model, see benchmark_base_20b.log
+[2026-04-07 10:55:33] Benchmark: START — Fine-tuned gpt-oss-20b (compact)
+[2026-04-07 10:55:33] Benchmark: FAILED — Fine-tuned model, see benchmark_ft_20b_compact.log
+[2026-04-07 10:55:33] Benchmark: Generating comparison
+Could not extract scores. base=0 ft=0
+[2026-04-07 10:55:35] Benchmark: ALL DONE
+[2026-04-07 12:02:12] Benchmark: START — Base gpt-oss-20b
+[2026-04-07 12:06:10] Benchmark: FAILED — Base model, see benchmark_base_20b.log
+[2026-04-07 12:06:10] Benchmark: START — Fine-tuned gpt-oss-20b (compact)
+[2026-04-07 12:10:45] Benchmark: FAILED — Fine-tuned model, see benchmark_ft_20b_compact.log
+[2026-04-07 12:10:45] Benchmark: Generating comparison
+Could not extract scores. base=0 ft=0
+[2026-04-07 12:10:56] Benchmark: ALL DONE
+[2026-04-07 23:06:29] Benchmark: START — Base gpt-oss-20b
+[2026-04-07 23:09:16] Benchmark: FAILED — Base model, see benchmark_base_20b.log
+[2026-04-07 23:09:16] Benchmark: START — Fine-tuned gpt-oss-20b (compact)
+[2026-04-07 23:13:57] Benchmark: FAILED — Fine-tuned model, see benchmark_ft_20b_compact.log
+[2026-04-07 23:13:57] Benchmark: Generating comparison
+Could not extract scores. base=0 ft=0
+[2026-04-07 23:14:07] Benchmark: ALL DONE

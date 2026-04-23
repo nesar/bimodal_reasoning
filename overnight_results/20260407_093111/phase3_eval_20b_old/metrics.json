@@ -1,0 +1,8 @@
+{
+  "label": "GPT-OSS-20B (original)",
+  "n_total": 200,
+  "n_valid": 139,
+  "mae": 0.2859906474820144,
+  "median_ae": 0.2798,
+  "outlier_fraction_gt_0.1": 0.8920863309352518
+}
