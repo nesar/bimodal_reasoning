@@ -41,7 +41,7 @@ mkdir -p "$RESULTS_DIR/benchmark_base_20b"
 
 $LM_EVAL \
     --model hf \
-    --model_args "pretrained=openai/gpt-oss-20b,trust_remote_code=True,dtype=bfloat16,parallelize=True,attn_implementation=sdpa" \
+    --model_args "pretrained=openai/gpt-oss-20b,trust_remote_code=True,dtype=bfloat16,parallelize=True,attn_implementation=eager" \
     --tasks "$TASKS" \
     --batch_size 1 \
     --num_fewshot 0 \
@@ -60,7 +60,7 @@ if [[ -d "$ADAPTER_COMPACT" ]]; then
 
     $LM_EVAL \
         --model hf \
-        --model_args "pretrained=openai/gpt-oss-20b,peft=$ADAPTER_COMPACT,trust_remote_code=True,dtype=bfloat16,parallelize=True,attn_implementation=sdpa" \
+        --model_args "pretrained=openai/gpt-oss-20b,peft=$ADAPTER_COMPACT,trust_remote_code=True,dtype=bfloat16,parallelize=True,attn_implementation=eager" \
         --tasks "$TASKS" \
         --batch_size 1 \
         --num_fewshot 0 \
@@ -81,7 +81,7 @@ mkdir -p "$RESULTS_DIR/benchmark_base_120b"
 
 $LM_EVAL \
     --model hf \
-    --model_args "pretrained=openai/gpt-oss-120b,trust_remote_code=True,dtype=bfloat16,parallelize=True,attn_implementation=sdpa" \
+    --model_args "pretrained=openai/gpt-oss-120b,trust_remote_code=True,dtype=bfloat16,parallelize=True,attn_implementation=eager" \
     --tasks "$TASKS" \
     --batch_size 1 \
     --num_fewshot 0 \
@@ -101,7 +101,7 @@ if [[ -d "$ADAPTER_120B" ]]; then
 
     $LM_EVAL \
         --model hf \
-        --model_args "pretrained=openai/gpt-oss-120b,peft=$ADAPTER_120B,trust_remote_code=True,dtype=bfloat16,parallelize=True,attn_implementation=sdpa" \
+        --model_args "pretrained=openai/gpt-oss-120b,peft=$ADAPTER_120B,trust_remote_code=True,dtype=bfloat16,parallelize=True,attn_implementation=eager" \
         --tasks "$TASKS" \
         --batch_size 1 \
         --num_fewshot 0 \
