@@ -14,6 +14,13 @@ export HF_HOME=/lcrc/project/cosmo_ai/nramachandra/hf_cache
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 export PYTHONPATH=/lcrc/project/solitons/nramachandra/lm_eval_pkg:${PYTHONPATH:-}
 
+# Add pip-installed CUDA libs to LD_LIBRARY_PATH (libcusparseLt etc. ship with torch
+# wheels but the dir isn't searched by default on this cluster).
+NVIDIA_LIB_ROOT="/lcrc/project/cosmo_ai/nramachandra/envs/bimodal/lib/python3.11/site-packages/nvidia"
+for d in "$NVIDIA_LIB_ROOT"/*/lib; do
+    export LD_LIBRARY_PATH="$d:${LD_LIBRARY_PATH:-}"
+done
+
 BASE_DIR="/lcrc/project/cosmo_ai/nramachandra/Projects/SpecFoundation/bimodal_reasoning"
 LM_EVAL="/lcrc/project/cosmo_ai/nramachandra/envs/bimodal/bin/python -m lm_eval"
 RESULTS_DIR="$BASE_DIR/overnight_results/latest"
