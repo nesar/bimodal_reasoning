@@ -94,3 +94,15 @@ Not enough results for comparison. Found: []
 [2026-04-23 15:46:01] Benchmark: Generating comparison
 Not enough results for comparison. Found: []
 [2026-04-23 15:46:14] Benchmark: ALL DONE
+[2026-04-24 11:54:00] Detected 8 GPUs
+[2026-04-24 11:54:00] Benchmark: START — Base gpt-oss-20b
+[2026-04-24 11:54:37] Benchmark: FAILED — Base model, see benchmark_base_20b.log
+[2026-04-24 11:54:37] Benchmark: START — Fine-tuned gpt-oss-20b (compact)
+[2026-04-24 11:55:16] Benchmark: FAILED — Fine-tuned model, see benchmark_ft_20b_compact.log
+[2026-04-24 11:55:16] Benchmark: START — Base gpt-oss-120b
+[2026-04-24 11:55:53] Benchmark: FAILED — Base 120b, see benchmark_base_120b.log
+[2026-04-24 11:55:53] Benchmark: START — Fine-tuned gpt-oss-120b (structured)
+[2026-04-24 11:56:29] Benchmark: FAILED — Fine-tuned 120b, see benchmark_ft_120b_structured.log
+[2026-04-24 11:56:29] Benchmark: Generating comparison
+Not enough results for comparison. Found: []
+[2026-04-24 11:56:42] Benchmark: ALL DONE
