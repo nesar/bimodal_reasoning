@@ -10,6 +10,13 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 BASE_DIR="/lcrc/project/cosmo_ai/nramachandra/Projects/SpecFoundation/bimodal_reasoning"
 PYTHON="/lcrc/project/cosmo_ai/nramachandra/envs/bimodal/bin/python"
 RESULTS="$BASE_DIR/experiments/autoresearch_runs/results.tsv"
+# Opt-in: run lm-eval harness on each trial and use the dual (MAE + benchmark
+# retention) objective from experiments/autoresearch_stub.py. Slower (~2 min
+# extra per trial) but protects against catastrophic forgetting.
+WITH_BENCHMARKS="${WITH_BENCHMARKS:-0}"
+# Base-model benchmark scores used as the retention baseline (populated once
+# by running experiments/benchmark_adapter.py on the base model in fast mode).
+BASELINE_JSON="$BASE_DIR/experiments/autoresearch_runs/base_benchmarks.json"
 
 cd "$BASE_DIR"
 
@@ -22,14 +29,39 @@ run_exp() {
     echo "[$(date '+%H:%M:%S')] Experiment #${exp_num}: ${desc}"
     local log="/tmp/exp_$(printf '%03d' $exp_num).log"
 
-    $PYTHON experiments/run_experiment.py --output_dir "/tmp/exp_$(printf '%03d' $exp_num)" $args > "$log" 2>&1
+    local extra=""
+    [[ "$WITH_BENCHMARKS" == "1" ]] && extra="--run_benchmarks"
+
+    $PYTHON experiments/run_experiment.py --output_dir "/tmp/exp_$(printf '%03d' $exp_num)" $extra $args > "$log" 2>&1
     local exit_code=$?
 
     if [[ $exit_code -eq 0 ]]; then
         local mae=$(grep "^mae:" "$log" | awk '{print $2}')
         local loss=$(grep "^train_loss:" "$log" | awk '{print $2}')
-        echo "  Result: MAE=${mae}, loss=${loss}"
-        echo "$mae"
+        if [[ "$WITH_BENCHMARKS" == "1" ]]; then
+            local bench_sci=$(grep "^bench_sci_reasoning:" "$log" | awk '{print $2}')
+            local bench_qa=$(grep "^bench_general_qa:" "$log" | awk '{print $2}')
+            # Dual objective from autoresearch_stub.compute_objective
+            # (lower is better for the caller: we emit 1 - objective)
+            local score=$($PYTHON - <<PY
+import json, os
+from experiments.autoresearch_stub import compute_objective
+baseline = json.load(open("$BASELINE_JSON")) if os.path.exists("$BASELINE_JSON") else {}
+m = {"redshift_mae": $mae,
+     "sci_reasoning_base": baseline.get("sci_reasoning", 50.0),
+     "sci_reasoning_ft":   ${bench_sci:-50.0},
+     "general_qa_base":    baseline.get("general_qa", 50.0),
+     "general_qa_ft":      ${bench_qa:-50.0}}
+obj = compute_objective(m)
+print(f"{1.0 - obj:.6f}")   # invert so "lower is better" matches the MAE path
+PY
+)
+            echo "  Result: MAE=${mae}, loss=${loss}, sci=${bench_sci}, qa=${bench_qa}, score=${score}"
+            echo "$score"
+        else
+            echo "  Result: MAE=${mae}, loss=${loss}"
+            echo "$mae"
+        fi
     else
         echo "  CRASHED (exit $exit_code)"
         echo "crash"

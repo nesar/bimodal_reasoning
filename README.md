@@ -77,27 +77,32 @@ bash run_suite.sh --collect-results
 ```
 
 ### 6. Run LM eval harness benchmarks (MMLU, GPQA, BBH, …)
-`run_benchmarks.sh` runs lm-eval on the base and fine-tuned checkpoints for both
-gpt-oss-20b and gpt-oss-120b. Models run in **pure bf16** (MXFP4 weights are
-dequantized at load time — no quantized inference).
+Models run in **pure bf16** (MXFP4 weights are dequantized at load time — no
+quantized inference, no weight changes).
 
-Required environment (handled by the script):
-- `PYTHONPATH` → custom lm-eval at `/lcrc/project/solitons/nramachandra/lm_eval_pkg`
-- `LD_LIBRARY_PATH` → pip-installed NVIDIA libs in the `bimodal` env
-  (torch ships `libcusparseLt.so.0` inside its nvidia wheels; the cluster's
-  default search path does not include them)
-- `max_memory_per_gpu=50GiB`, `parallelize=True`, `attn_implementation=eager`
-  (GptOssForCausalLM only supports eager)
+**One-shot terminal command** (single task, base or adapter, 80GB A100s):
+```bash
+python experiments/benchmark_adapter.py \
+    --base-model openai/gpt-oss-20b \
+    --adapter   output_models/gpt-oss-20b_compact \
+    --mode      fast \
+    --output-dir /tmp/bench_run
+```
+Omit `--adapter` to evaluate the base model. `--mode full` runs the full task
+suite; `--tasks "a,b,c"` overrides with an explicit list. The script sets
+`PYTHONPATH`, `LD_LIBRARY_PATH` (for `libcusparseLt.so.0` inside the torch
+nvidia wheels), and the correct `parallelize=True,max_memory_per_gpu=50GiB,
+attn_implementation=eager` model args — the only combination that works for
+`GptOssForCausalLM` in pure bf16.
 
-Run the full suite (20B + 120B, ~few hours on 8×A100-80GB):
+**Full paired suite** (base vs FT, 20B + 120B, ~few hours on 8×A100-80GB):
 ```bash
 nohup bash run_benchmarks.sh 0 > benchmark.log 2>&1 &
 tail -f benchmark.log
 ```
 
-Run a single model/task combination directly:
+Raw lm-eval invocation (same args benchmark_adapter.py would use):
 ```bash
-# Source the env bits from run_benchmarks.sh, then:
 python -m lm_eval \
     --model hf \
     --model_args "pretrained=openai/gpt-oss-20b,trust_remote_code=True,dtype=bfloat16,parallelize=True,max_memory_per_gpu=50GiB,attn_implementation=eager" \
@@ -105,13 +110,35 @@ python -m lm_eval \
     --batch_size 1 --num_fewshot 0 \
     --output_path ./eval_out
 ```
-
-Add `peft=path/to/adapter` to the `--model_args` to evaluate a LoRA-fine-tuned
-checkpoint. For the 120B model, change `pretrained=openai/gpt-oss-120b`; the
-same settings work (ensure all 8 GPUs are visible).
+Add `peft=path/to/adapter` inside the model_args to evaluate a LoRA checkpoint.
+Swap `gpt-oss-20b` → `gpt-oss-120b` for the big model.
 
 Results land in `overnight_results/latest/benchmark_{base,ft}_{20b,120b}*/` as
 standard lm-eval JSON, plus a `benchmark_comparison.json` and PNG plots.
+
+### 7. AutoResearch with benchmark retention
+The autoresearch loop optionally evaluates each trial against the lm-eval
+harness and scores it with the dual objective in
+`experiments/autoresearch_stub.py` (minimize redshift MAE **and** preserve base-
+model MMLU/GPQA/BBH scores). One-time baseline setup (reads from the last full
+base run under `overnight_results/latest`):
+
+```bash
+python experiments/benchmark_adapter.py \
+    --base-model openai/gpt-oss-20b \
+    --mode fast \
+    --output-dir experiments/autoresearch_runs/base_fast
+# → writes experiments/autoresearch_runs/base_benchmarks.json
+```
+
+Then run the loop with benchmark-aware selection:
+```bash
+WITH_BENCHMARKS=1 bash experiments/run_loop.sh
+```
+Each trial still trains + measures redshift MAE (fast), then also runs
+`TASKS_FAST` from `benchmark_adapter.py` (~2 extra min) and logs
+`bench_sci_reasoning`, `bench_general_qa`, and the compound `score`. Default
+(`WITH_BENCHMARKS` unset) keeps the MAE-only selection used so far.
 
 ## Key Design Choices (see TODO.md for details)
 1. **Model:** GPT-OSS-120B (switched from Llama-3-8B)

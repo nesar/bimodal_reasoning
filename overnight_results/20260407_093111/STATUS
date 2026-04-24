@@ -108,3 +108,9 @@ Not enough results for comparison. Found: []
 [2026-04-24 11:56:42] Benchmark: ALL DONE
 [2026-04-24 14:23:05] Detected 8 GPUs
 [2026-04-24 14:23:05] Benchmark: START — Base gpt-oss-20b
+[2026-04-24 15:14:10] Benchmark: DONE — Base 20B results in benchmark_base_20b/
+[2026-04-24 15:14:10] Benchmark: START — Fine-tuned gpt-oss-20b (compact)
+[2026-04-24 16:15:29] Benchmark: DONE — FT 20B results in benchmark_ft_20b_compact/
+[2026-04-24 16:15:29] Benchmark: 20B ALL DONE
+[2026-04-24 16:36:16] Detected 8 GPUs
+[2026-04-24 16:36:16] Benchmark: START — Base gpt-oss-20b

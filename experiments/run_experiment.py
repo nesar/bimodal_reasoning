@@ -30,6 +30,7 @@ from transformers import (
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from eval.redshift_eval_peft import trim_spectrum_to_fit, extract_redshift
+from experiments.benchmark_adapter import run_lm_eval, aggregate, TASKS_FAST
 
 
 def load_text2text(path):
@@ -145,6 +146,16 @@ def train_and_eval(args):
     mae = float(np.mean(np.abs(z_true[mask] - z_pred[mask]))) if n_valid > 0 else float("inf")
     total_time = time.time() - t0
 
+    # Optional: lm-eval harness benchmarks on the fine-tuned adapter.
+    # Releases GPU memory from the eval model first so lm-eval can reload.
+    bench_agg = {}
+    if args.run_benchmarks:
+        del base_model, eval_model
+        torch.cuda.empty_cache()
+        bench_dir = os.path.join(args.output_dir, "lm_eval")
+        bench_scores = run_lm_eval(args.model, args.output_dir, TASKS_FAST, bench_dir)
+        bench_agg = aggregate(bench_scores)
+
     # Print summary
     print("---")
     print(f"mae:            {mae:.6f}")
@@ -159,6 +170,8 @@ def train_and_eval(args):
     print(f"max_steps:      {args.max_steps}")
     print(f"block_size:     {args.block_size}")
     print(f"warmup_ratio:   {args.warmup_ratio}")
+    for k, v in bench_agg.items():
+        print(f"bench_{k}: {v}")
 
     return mae
 
@@ -177,6 +190,8 @@ def main():
     parser.add_argument("--block_size", type=int, default=512)
     parser.add_argument("--warmup_ratio", type=float, default=0.05)
     parser.add_argument("--eval_samples", type=int, default=50)
+    parser.add_argument("--run_benchmarks", action="store_true",
+                        help="After training, run fast lm-eval harness subset on the adapter")
     args = parser.parse_args()
 
     os.makedirs(args.output_dir, exist_ok=True)
