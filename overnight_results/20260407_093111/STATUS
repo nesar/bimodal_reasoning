@@ -106,3 +106,5 @@ Not enough results for comparison. Found: []
 [2026-04-24 11:56:29] Benchmark: Generating comparison
 Not enough results for comparison. Found: []
 [2026-04-24 11:56:42] Benchmark: ALL DONE
+[2026-04-24 14:23:05] Detected 8 GPUs
+[2026-04-24 14:23:05] Benchmark: START — Base gpt-oss-20b
