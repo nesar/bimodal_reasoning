@@ -157,3 +157,5 @@ gpqa_extended                         30.8        30.0
 gpqa_main                             35.3        31.0
 high_school_physics                   31.1        51.0
 [2026-04-24 18:39:52] Benchmark: ALL DONE
+[2026-04-27 13:03:21] 120B benchmarks: detected 8 GPUs, max_memory_per_gpu=35GiB
+[2026-04-27 13:03:22] Benchmark: START — Base gpt-oss-120b
