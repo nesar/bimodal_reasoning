@@ -41,7 +41,7 @@ mkdir -p "$RESULTS_DIR/benchmark_base_120b"
 
 $LM_EVAL \
     --model hf \
-    --model_args "pretrained=openai/gpt-oss-120b,trust_remote_code=True,dtype=bfloat16,parallelize=True,max_memory_per_gpu=35GiB,attn_implementation=eager" \
+    --model_args "pretrained=openai/gpt-oss-120b,trust_remote_code=True,dtype=bfloat16,parallelize=True,max_memory_per_gpu=35GiB,attn_implementation=eager,max_length=4096" \
     --tasks "$TASKS" \
     --batch_size 1 \
     --num_fewshot 0 \
@@ -59,7 +59,7 @@ if [[ -d "$ADAPTER_120B" ]]; then
 
     $LM_EVAL \
         --model hf \
-        --model_args "pretrained=openai/gpt-oss-120b,peft=$ADAPTER_120B,trust_remote_code=True,dtype=bfloat16,parallelize=True,max_memory_per_gpu=35GiB,attn_implementation=eager" \
+        --model_args "pretrained=openai/gpt-oss-120b,peft=$ADAPTER_120B,trust_remote_code=True,dtype=bfloat16,parallelize=True,max_memory_per_gpu=35GiB,attn_implementation=eager,max_length=4096" \
         --tasks "$TASKS" \
         --batch_size 1 \
         --num_fewshot 0 \
