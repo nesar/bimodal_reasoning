@@ -1,0 +1,132 @@
+{
+  "tasks": {
+    "astronomy": {
+      "base_20b": 78.3,
+      "ft_20b": 82.9
+    },
+    "bbh": {
+      "base_20b": 49.4,
+      "ft_20b": 43.4
+    },
+    "bbh_boolean_expressions": {
+      "base_20b": 57.6,
+      "ft_20b": 63.2
+    },
+    "bbh_causal_judgement": {
+      "base_20b": 47.6,
+      "ft_20b": 54.0
+    },
+    "bbh_date_understanding": {
+      "base_20b": 64.0,
+      "ft_20b": 56.0
+    },
+    "bbh_disambiguation_qa": {
+      "base_20b": 35.6,
+      "ft_20b": 31.6
+    },
+    "bbh_formal_fallacies": {
+      "base_20b": 53.6,
+      "ft_20b": 54.0
+    },
+    "bbh_geometric_shapes": {
+      "base_20b": 34.4,
+      "ft_20b": 25.2
+    },
+    "bbh_hyperbaton": {
+      "base_20b": 66.4,
+      "ft_20b": 55.2
+    },
+    "bbh_logical_deduction_five_objects": {
+      "base_20b": 38.0,
+      "ft_20b": 39.2
+    },
+    "bbh_logical_deduction_seven_objects": {
+      "base_20b": 37.2,
+      "ft_20b": 31.2
+    },
+    "bbh_logical_deduction_three_objects": {
+      "base_20b": 66.0,
+      "ft_20b": 52.0
+    },
+    "bbh_movie_recommendation": {
+      "base_20b": 70.4,
+      "ft_20b": 80.4
+    },
+    "bbh_navigate": {
+      "base_20b": 49.2,
+      "ft_20b": 42.0
+    },
+    "bbh_object_counting": {
+      "base_20b": 36.0,
+      "ft_20b": 53.2
+    },
+    "bbh_penguins_in_a_table": {
+      "base_20b": 50.7,
+      "ft_20b": 48.6
+    },
+    "bbh_reasoning_about_colored_objects": {
+      "base_20b": 53.6,
+      "ft_20b": 43.2
+    },
+    "bbh_ruin_names": {
+      "base_20b": 60.0,
+      "ft_20b": 38.0
+    },
+    "bbh_salient_translation_error_detection": {
+      "base_20b": 52.0,
+      "ft_20b": 52.4
+    },
+    "bbh_snarks": {
+      "base_20b": 63.5,
+      "ft_20b": 64.0
+    },
+    "bbh_sports_understanding": {
+      "base_20b": 59.2,
+      "ft_20b": 46.0
+    },
+    "bbh_temporal_sequences": {
+      "base_20b": 88.8,
+      "ft_20b": 16.0
+    },
+    "bbh_tracking_shuffled_objects_five_objects": {
+      "base_20b": 15.6,
+      "ft_20b": 14.0
+    },
+    "bbh_tracking_shuffled_objects_seven_objects": {
+      "base_20b": 12.4,
+      "ft_20b": 13.2
+    },
+    "bbh_tracking_shuffled_objects_three_objects": {
+      "base_20b": 30.0,
+      "ft_20b": 31.6
+    },
+    "bbh_web_of_lies": {
+      "base_20b": 48.8,
+      "ft_20b": 48.8
+    },
+    "college_physics": {
+      "base_20b": 29.4,
+      "ft_20b": 51.0
+    },
+    "gpqa": {
+      "base_20b": 32.5,
+      "ft_20b": 31.0
+    },
+    "gpqa_diamond": {
+      "base_20b": 30.8,
+      "ft_20b": 33.3
+    },
+    "gpqa_extended": {
+      "base_20b": 30.8,
+      "ft_20b": 30.0
+    },
+    "gpqa_main": {
+      "base_20b": 35.3,
+      "ft_20b": 31.0
+    },
+    "high_school_physics": {
+      "base_20b": 31.1,
+      "ft_20b": 51.0
+    }
+  }
+}

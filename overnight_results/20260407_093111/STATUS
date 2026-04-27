@@ -114,3 +114,46 @@ Not enough results for comparison. Found: []
 [2026-04-24 16:15:29] Benchmark: 20B ALL DONE
 [2026-04-24 16:36:16] Detected 8 GPUs
 [2026-04-24 16:36:16] Benchmark: START — Base gpt-oss-20b
+[2026-04-24 17:27:52] Benchmark: DONE — Base model results in benchmark_base_20b/
+[2026-04-24 17:27:52] Benchmark: START — Fine-tuned gpt-oss-20b (compact)
+[2026-04-24 18:29:41] Benchmark: DONE — Fine-tuned model results in benchmark_ft_20b_compact/
+[2026-04-24 18:29:41] Benchmark: START — Base gpt-oss-120b
+[2026-04-24 18:34:25] Benchmark: FAILED — Base 120b, see benchmark_base_120b.log
+[2026-04-24 18:34:25] Benchmark: START — Fine-tuned gpt-oss-120b (structured)
+[2026-04-24 18:39:38] Benchmark: FAILED — Fine-tuned 120b, see benchmark_ft_120b_structured.log
+[2026-04-24 18:39:38] Benchmark: Generating comparison
+task                              base_20b      ft_20b
+------------------------------------------------------
+astronomy                             78.3        82.9
+bbh                                   49.4        43.4
+bbh_boolean_expressions               57.6        63.2
+bbh_causal_judgement                  47.6        54.0
+bbh_date_understanding                64.0        56.0
+bbh_disambiguation_qa                 35.6        31.6
+bbh_formal_fallacies                  53.6        54.0
+bbh_geometric_shapes                  34.4        25.2
+bbh_hyperbaton                        66.4        55.2
+bbh_logical_deduction_five_objects        38.0        39.2
+bbh_logical_deduction_seven_objects        37.2        31.2
+bbh_logical_deduction_three_objects        66.0        52.0
+bbh_movie_recommendation              70.4        80.4
+bbh_navigate                          49.2        42.0
+bbh_object_counting                   36.0        53.2
+bbh_penguins_in_a_table               50.7        48.6
+bbh_reasoning_about_colored_objects        53.6        43.2
+bbh_ruin_names                        60.0        38.0
+bbh_salient_translation_error_detection        52.0        52.4
+bbh_snarks                            63.5        64.0
+bbh_sports_understanding              59.2        46.0
+bbh_temporal_sequences                88.8        16.0
+bbh_tracking_shuffled_objects_five_objects        15.6        14.0
+bbh_tracking_shuffled_objects_seven_objects        12.4        13.2
+bbh_tracking_shuffled_objects_three_objects        30.0        31.6
+bbh_web_of_lies                       48.8        48.8
+college_physics                       29.4        51.0
+gpqa                                  32.5        31.0
+gpqa_diamond                          30.8        33.3
+gpqa_extended                         30.8        30.0
+gpqa_main                             35.3        31.0
+high_school_physics                   31.1        51.0
+[2026-04-24 18:39:52] Benchmark: ALL DONE

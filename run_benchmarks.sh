@@ -87,9 +87,11 @@ fi
 log "Benchmark: START — Base gpt-oss-120b"
 mkdir -p "$RESULTS_DIR/benchmark_base_120b"
 
+# 120B in bf16 ≈ 240GB. With 8 GPUs, 35GiB cap spreads weights evenly (~30GB each),
+# leaving room for the 18-19 GiB eager-attention activation per layer.
 $LM_EVAL \
     --model hf \
-    --model_args "pretrained=openai/gpt-oss-120b,trust_remote_code=True,dtype=bfloat16,parallelize=True,max_memory_per_gpu=50GiB,attn_implementation=eager" \
+    --model_args "pretrained=openai/gpt-oss-120b,trust_remote_code=True,dtype=bfloat16,parallelize=True,max_memory_per_gpu=35GiB,attn_implementation=eager" \
     --tasks "$TASKS" \
     --batch_size 1 \
     --num_fewshot 0 \
@@ -109,7 +111,7 @@ if [[ -d "$ADAPTER_120B" ]]; then
 
     $LM_EVAL \
         --model hf \
-        --model_args "pretrained=openai/gpt-oss-120b,peft=$ADAPTER_120B,trust_remote_code=True,dtype=bfloat16,parallelize=True,max_memory_per_gpu=50GiB,attn_implementation=eager" \
+        --model_args "pretrained=openai/gpt-oss-120b,peft=$ADAPTER_120B,trust_remote_code=True,dtype=bfloat16,parallelize=True,max_memory_per_gpu=35GiB,attn_implementation=eager" \
         --tasks "$TASKS" \
         --batch_size 1 \
         --num_fewshot 0 \
