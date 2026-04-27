@@ -1,0 +1,2662 @@
+{
+  "results": {
+    "leaderboard_bbh": {
+      "acc_norm,none": 0.4618989758722444,
+      "acc_norm_stderr,none": 0.006284411745908639,
+      "alias": "leaderboard_bbh"
+    },
+    "leaderboard_bbh_boolean_expressions": {
+      "alias": " - leaderboard_bbh_boolean_expressions",
+      "acc_norm,none": 0.604,
+      "acc_norm_stderr,none": 0.030993197854577853
+    },
+    "leaderboard_bbh_causal_judgement": {
+      "alias": " - leaderboard_bbh_causal_judgement",
+      "acc_norm,none": 0.5187165775401069,
+      "acc_norm_stderr,none": 0.03663608375537842
+    },
+    "leaderboard_bbh_date_understanding": {
+      "alias": " - leaderboard_bbh_date_understanding",
+      "acc_norm,none": 0.484,
+      "acc_norm_stderr,none": 0.03166998503010743
+    },
+    "leaderboard_bbh_disambiguation_qa": {
+      "alias": " - leaderboard_bbh_disambiguation_qa",
+      "acc_norm,none": 0.552,
+      "acc_norm_stderr,none": 0.03151438761115351
+    },
+    "leaderboard_bbh_formal_fallacies": {
+      "alias": " - leaderboard_bbh_formal_fallacies",
+      "acc_norm,none": 0.468,
+      "acc_norm_stderr,none": 0.031621252575725504
+    },
+    "leaderboard_bbh_geometric_shapes": {
+      "alias": " - leaderboard_bbh_geometric_shapes",
+      "acc_norm,none": 0.264,
+      "acc_norm_stderr,none": 0.02793451895769091
+    },
+    "leaderboard_bbh_hyperbaton": {
+      "alias": " - leaderboard_bbh_hyperbaton",
+      "acc_norm,none": 0.556,
+      "acc_norm_stderr,none": 0.03148684942554574
+    },
+    "leaderboard_bbh_logical_deduction_five_objects": {
+      "alias": " - leaderboard_bbh_logical_deduction_five_objects",
+      "acc_norm,none": 0.472,
+      "acc_norm_stderr,none": 0.031636489531544396
+    },
+    "leaderboard_bbh_logical_deduction_seven_objects": {
+      "alias": " - leaderboard_bbh_logical_deduction_seven_objects",
+      "acc_norm,none": 0.504,
+      "acc_norm_stderr,none": 0.031685198551199154
+    },
+    "leaderboard_bbh_logical_deduction_three_objects": {
+      "alias": " - leaderboard_bbh_logical_deduction_three_objects",
+      "acc_norm,none": 0.888,
+      "acc_norm_stderr,none": 0.019985536939171458
+    },
+    "leaderboard_bbh_movie_recommendation": {
+      "alias": " - leaderboard_bbh_movie_recommendation",
+      "acc_norm,none": 0.604,
+      "acc_norm_stderr,none": 0.03099319785457785
+    },
+    "leaderboard_bbh_navigate": {
+      "alias": " - leaderboard_bbh_navigate",
+      "acc_norm,none": 0.42,
+      "acc_norm_stderr,none": 0.03127799950463662
+    },
+    "leaderboard_bbh_object_counting": {
+      "alias": " - leaderboard_bbh_object_counting",
+      "acc_norm,none": 0.46,
+      "acc_norm_stderr,none": 0.03158465389149901
+    },
+    "leaderboard_bbh_penguins_in_a_table": {
+      "alias": " - leaderboard_bbh_penguins_in_a_table",
+      "acc_norm,none": 0.5205479452054794,
+      "acc_norm_stderr,none": 0.04148766180925171
+    },
+    "leaderboard_bbh_reasoning_about_colored_objects": {
+      "alias": " - leaderboard_bbh_reasoning_about_colored_objects",
+      "acc_norm,none": 0.416,
+      "acc_norm_stderr,none": 0.031235856237014574
+    },
+    "leaderboard_bbh_ruin_names": {
+      "alias": " - leaderboard_bbh_ruin_names",
+      "acc_norm,none": 0.384,
+      "acc_norm_stderr,none": 0.030821679117375378
+    },
+    "leaderboard_bbh_salient_translation_error_detection": {
+      "alias": " - leaderboard_bbh_salient_translation_error_detection",
+      "acc_norm,none": 0.484,
+      "acc_norm_stderr,none": 0.031669985030107414
+    },
+    "leaderboard_bbh_snarks": {
+      "alias": " - leaderboard_bbh_snarks",
+      "acc_norm,none": 0.47752808988764045,
+      "acc_norm_stderr,none": 0.03754432508487194
+    },
+    "leaderboard_bbh_sports_understanding": {
+      "alias": " - leaderboard_bbh_sports_understanding",
+      "acc_norm,none": 0.46,
+      "acc_norm_stderr,none": 0.031584653891499
+    },
+    "leaderboard_bbh_temporal_sequences": {
+      "alias": " - leaderboard_bbh_temporal_sequences",
+      "acc_norm,none": 0.476,
+      "acc_norm_stderr,none": 0.03164968895968782
+    },
+    "leaderboard_bbh_tracking_shuffled_objects_five_objects": {
+      "alias": " - leaderboard_bbh_tracking_shuffled_objects_five_objects",
+      "acc_norm,none": 0.164,
+      "acc_norm_stderr,none": 0.023465261002076753
+    },
+    "leaderboard_bbh_tracking_shuffled_objects_seven_objects": {
+      "alias": " - leaderboard_bbh_tracking_shuffled_objects_seven_objects",
+      "acc_norm,none": 0.144,
+      "acc_norm_stderr,none": 0.02224940773545021
+    },
+    "leaderboard_bbh_tracking_shuffled_objects_three_objects": {
+      "alias": " - leaderboard_bbh_tracking_shuffled_objects_three_objects",
+      "acc_norm,none": 0.32,
+      "acc_norm_stderr,none": 0.029561724955241037
+    },
+    "leaderboard_bbh_web_of_lies": {
+      "alias": " - leaderboard_bbh_web_of_lies",
+      "acc_norm,none": 0.488,
+      "acc_norm_stderr,none": 0.03167708558254708
+    },
+    "leaderboard_gpqa": {
+      "acc_norm,none": 0.33305369127516776,
+      "acc_norm_stderr,none": 0.013664841798730915,
+      "alias": "leaderboard_gpqa"
+    },
+    "leaderboard_gpqa_diamond": {
+      "alias": " - leaderboard_gpqa_diamond",
+      "acc_norm,none": 0.31313131313131315,
+      "acc_norm_stderr,none": 0.03304205087813652
+    },
+    "leaderboard_gpqa_extended": {
+      "alias": " - leaderboard_gpqa_extended",
+      "acc_norm,none": 0.3424908424908425,
+      "acc_norm_stderr,none": 0.02032718003704073
+    },
+    "leaderboard_gpqa_main": {
+      "alias": " - leaderboard_gpqa_main",
+      "acc_norm,none": 0.33035714285714285,
+      "acc_norm_stderr,none": 0.022246398347131515
+    },
+    "mmlu_astronomy": {
+      "alias": "astronomy",
+      "acc,none": 0.8881578947368421,
+      "acc_stderr,none": 0.025648341251693605
+    },
+    "mmlu_college_physics": {
+      "alias": "college_physics",
+      "acc,none": 0.5784313725490197,
+      "acc_stderr,none": 0.049135952012745045
+    },
+    "mmlu_high_school_physics": {
+      "alias": "high_school_physics",
+      "acc,none": 0.6357615894039735,
+      "acc_stderr,none": 0.03929111781242741
+    }
+  },
+  "groups": {
+    "leaderboard_bbh": {
+      "acc_norm,none": 0.4618989758722444,
+      "acc_norm_stderr,none": 0.006284411745908639,
+      "alias": "leaderboard_bbh"
+    },
+    "leaderboard_gpqa": {
+      "acc_norm,none": 0.33305369127516776,
+      "acc_norm_stderr,none": 0.013664841798730915,
+      "alias": "leaderboard_gpqa"
+    }
+  },
+  "group_subtasks": {
+    "mmlu_college_physics": [],
+    "mmlu_high_school_physics": [],
+    "mmlu_astronomy": [],
+    "leaderboard_gpqa": [
+      "leaderboard_gpqa_diamond",
+      "leaderboard_gpqa_extended",
+      "leaderboard_gpqa_main"
+    ],
+    "leaderboard_bbh": [
+      "leaderboard_bbh_boolean_expressions",
+      "leaderboard_bbh_causal_judgement",
+      "leaderboard_bbh_date_understanding",
+      "leaderboard_bbh_disambiguation_qa",
+      "leaderboard_bbh_formal_fallacies",
+      "leaderboard_bbh_geometric_shapes",
+      "leaderboard_bbh_hyperbaton",
+      "leaderboard_bbh_logical_deduction_five_objects",
+      "leaderboard_bbh_logical_deduction_seven_objects",
+      "leaderboard_bbh_logical_deduction_three_objects",
+      "leaderboard_bbh_movie_recommendation",
+      "leaderboard_bbh_navigate",
+      "leaderboard_bbh_object_counting",
+      "leaderboard_bbh_penguins_in_a_table",
+      "leaderboard_bbh_reasoning_about_colored_objects",
+      "leaderboard_bbh_ruin_names",
+      "leaderboard_bbh_salient_translation_error_detection",
+      "leaderboard_bbh_snarks",
+      "leaderboard_bbh_sports_understanding",
+      "leaderboard_bbh_temporal_sequences",
+      "leaderboard_bbh_tracking_shuffled_objects_five_objects",
+      "leaderboard_bbh_tracking_shuffled_objects_seven_objects",
+      "leaderboard_bbh_tracking_shuffled_objects_three_objects",
+      "leaderboard_bbh_web_of_lies"
+    ]
+  },
+  "configs": {
+    "leaderboard_bbh_boolean_expressions": {
+      "task": "leaderboard_bbh_boolean_expressions",
+      "dataset_path": "SaylorTwift/bbh",
+      "dataset_name": "boolean_expressions",
+      "test_split": "test",
+      "doc_to_text": "Q: {{input}}\nA:",
+      "doc_to_target": "{{target}}",
+      "unsafe_code": false,
+      "doc_to_choice": [
+        "False",
+        "True"
+      ],
+      "description": "Evaluate the result of a random Boolean expression.",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "first_n",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": [
+          {
+            "input": "not ( ( not not True ) ) is",
+            "target": "False"
+          },
+          {
+            "input": "True and False and not True and True is",
+            "target": "False"
+          },
+          {
+            "input": "not not ( not ( False ) ) is",
+            "target": "True"
+          }
+        ],
+        "doc_to_text": "Q: {{input}}\nA:",
+        "doc_to_choice": [
+          "False",
+          "True"
+        ],
+        "doc_to_target": "{{target}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0,
+        "pretrained": "openai/gpt-oss-120b",
+        "trust_remote_code": true,
+        "dtype": "bfloat16",
+        "parallelize": true,
+        "max_memory_per_gpu": "35GiB",
+        "attn_implementation": "eager",
+        "max_length": 4096
+      }
+    },
+    "leaderboard_bbh_causal_judgement": {
+      "task": "leaderboard_bbh_causal_judgement",
+      "dataset_path": "SaylorTwift/bbh",
+      "dataset_name": "causal_judgement",
+      "test_split": "test",
+      "doc_to_text": "Q: {{input}}\nA:",
+      "doc_to_target": "{{target}}",
+      "unsafe_code": false,
+      "doc_to_choice": [
+        "Yes",
+        "No"
+      ],
+      "description": "Answer questions about causal attribution.",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "first_n",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": [
+          {
+            "input": "How would a typical person answer each of the following questions about causation?\nFrank T., had an ongoing dispute with his neighbor over a stretch of land and one day decided to shoot his neighbor in the body. Frank T. had no experience with guns, his hand slipped on the barrel of the gun, and the shot went wild. Nonetheless, the bullet bounced off a large boulder several feet away and hit the neighbor's body, causing significant injury. Did Frank T. intentionally shoot his neighbor in the body?\nOptions:\n- Yes\n- No",
+            "target": "No"
+          },
+          {
+            "input": "How would a typical person answer each of the following questions about causation?\nSuzy and Billy are working on a project that is very important for our nation's security. The boss tells them both: \"Be sure that you are here at exactly 9 am. It is absolutely essential that you arrive at that time.\" Both Billy and Suzy arrive at 9 am. As it happens, there was a motion detector installed in the room where they arrived. The motion detector was set up to be triggered if at least one person appeared in the room at the same time. So the motion detector went off. Did Billy cause the motion detector to go off?\nOptions:\n- Yes\n- No",
+            "target": "Yes"
+          },
+          {
+            "input": "How would a typical person answer each of the following questions about causation?\nGeorge and his sister Lena reunite at their parents' house for Thanksgiving. Whereas George just got into medical school, Lena is unhappy in her marriage and recently lost her job. Over the course of the day, George and Lena get into a number of heated arguments. Later in the afternoon they play a game of darts. They split the first two games, and the third game is close until the end. Who will win comes down to George's last shot. If he hits a high point region, he wins; if he hits a low point region, Lena wins. George thinks of the difficult time Lena is having, and he really wants to let her win. He aims the dart at the low point region. He sets up his shot and the dart lands in the low point region. After his shot, Lena wins the game and is very happy. Did George hit the low point region intentionally?\nOptions:\n- Yes\n- No",
+            "target": "Yes"
+          }
+        ],
+        "doc_to_text": "Q: {{input}}\nA:",
+        "doc_to_choice": [
+          "Yes",
+          "No"
+        ],
+        "doc_to_target": "{{target}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0,
+        "pretrained": "openai/gpt-oss-120b",
+        "trust_remote_code": true,
+        "dtype": "bfloat16",
+        "parallelize": true,
+        "max_memory_per_gpu": "35GiB",
+        "attn_implementation": "eager",
+        "max_length": 4096
+      }
+    },
+    "leaderboard_bbh_date_understanding": {
+      "task": "leaderboard_bbh_date_understanding",
+      "dataset_path": "SaylorTwift/bbh",
+      "dataset_name": "date_understanding",
+      "test_split": "test",
+      "doc_to_text": "Q: {{input}}\nA:",
+      "doc_to_target": "{{target}}",
+      "unsafe_code": false,
+      "doc_to_choice": [
+        "(A)",
+        "(B)",
+        "(C)",
+        "(D)",
+        "(E)",
+        "(F)"
+      ],
+      "description": "Infer the date from context.",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "first_n",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": [
+          {
+            "input": "Today is Christmas Eve of 1937. What is the date 10 days ago in MM/DD/YYYY?\nOptions:\n(A) 12/14/2026\n(B) 12/14/1950\n(C) 12/14/2007\n(D) 12/14/1937\n(E) 07/14/1938\n(F) 12/14/1988",
+            "target": "(D)"
+          },
+          {
+            "input": "Tomorrow is 11/12/2019. What is the date one year ago from today in MM/DD/YYYY?\nOptions:\n(A) 09/04/2018\n(B) 11/11/2018\n(C) 08/25/2018\n(D) 11/02/2018\n(E) 11/04/2018",
+            "target": "(B)"
+          },
+          {
+            "input": "Jane and John married on Jan 2, 1958. It is their 5-year anniversary today. What is the date tomorrow in MM/DD/YYYY?\nOptions:\n(A) 01/11/1961\n(B) 01/03/1963\n(C) 01/18/1961\n(D) 10/14/1960\n(E) 01/03/1982\n(F) 12/03/1960",
+            "target": "(B)"
+          }
+        ],
+        "doc_to_text": "Q: {{input}}\nA:",
+        "doc_to_choice": [
+          "(A)",
+          "(B)",
+          "(C)",
+          "(D)",
+          "(E)",
+          "(F)"
+        ],
+        "doc_to_target": "{{target}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0,
+        "pretrained": "openai/gpt-oss-120b",
+        "trust_remote_code": true,
+        "dtype": "bfloat16",
+        "parallelize": true,
+        "max_memory_per_gpu": "35GiB",
+        "attn_implementation": "eager",
+        "max_length": 4096
+      }
+    },
+    "leaderboard_bbh_disambiguation_qa": {
+      "task": "leaderboard_bbh_disambiguation_qa",
+      "dataset_path": "SaylorTwift/bbh",
+      "dataset_name": "disambiguation_qa",
+      "test_split": "test",
+      "doc_to_text": "Q: {{input}}\nA:",
+      "doc_to_target": "{{target}}",
+      "unsafe_code": false,
+      "doc_to_choice": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "description": "Clarify the meaning of sentences with ambiguous pronouns.",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "first_n",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": [
+          {
+            "input": "In the following sentences, explain the antecedent of the pronoun (which thing the pronoun refers to), or state that it is ambiguous.\nSentence: The chief told the counselor that they took the day off.\nOptions:\n(A) The chief took the day off\n(B) The counselor took the day off\n(C) Ambiguous",
+            "target": "(A)"
+          },
+          {
+            "input": "In the following sentences, explain the antecedent of the pronoun (which thing the pronoun refers to), or state that it is ambiguous.\nSentence: The manager sent a message to the secretary, but he didn't reply yet.\nOptions:\n(A) The secretary didn't reply yet\n(B) The manager didn't reply yet\n(C) Ambiguous",
+            "target": "(A)"
+          },
+          {
+            "input": "In the following sentences, explain the antecedent of the pronoun (which thing the pronoun refers to), or state that it is ambiguous.\nSentence: Bailey will plan to meet the director at his office\nOptions:\n(A) It will be Bailey's office\n(B) It will be the director's office\n(C) Ambiguous",
+            "target": "(C)"
+          }
+        ],
+        "doc_to_text": "Q: {{input}}\nA:",
+        "doc_to_choice": [
+          "(A)",
+          "(B)",
+          "(C)"
+        ],
+        "doc_to_target": "{{target}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0,
+        "pretrained": "openai/gpt-oss-120b",
+        "trust_remote_code": true,
+        "dtype": "bfloat16",
+        "parallelize": true,
+        "max_memory_per_gpu": "35GiB",
+        "attn_implementation": "eager",
+        "max_length": 4096
+      }
+    },
+    "leaderboard_bbh_formal_fallacies": {
+      "task": "leaderboard_bbh_formal_fallacies",
+      "dataset_path": "SaylorTwift/bbh",
+      "dataset_name": "formal_fallacies",
+      "test_split": "test",
+      "doc_to_text": "Q: {{input}}\nA:",
+      "doc_to_target": "{{target}}",
+      "unsafe_code": false,
+      "doc_to_choice": [
+        "valid",
+        "invalid"
+      ],
+      "description": "Distinguish deductively valid arguments from formal fallacies.",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "first_n",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": [
+          {
+            "input": "\"It is not always easy to see who is related to whom -- and in which ways. The following argument pertains to this question: To begin with, Lesley is a close friend of Fernando. Moreover, being a close friend of Fernando or a schoolmate of Lowell is sufficient for being a great-grandfather of Leroy. It follows that Lesley is a great-grandfather of Leroy.\"\nIs the argument, given the explicitly stated premises, deductively valid or invalid?\nOptions:\n- valid\n- invalid",
+            "target": "valid"
+          },
+          {
+            "input": "\"It is not always easy to see who is related to whom -- and in which ways. The following argument pertains to this question: Whoever is not a great-grandfather of Clyde is a stepbrother of Brian. Being an ancestor of Dana is sufficient for not being a great-grandfather of Clyde. We may conclude: Everyone who is an ancestor of Dana is a stepbrother of Brian, too.\"\nIs the argument, given the explicitly stated premises, deductively valid or invalid?\nOptions:\n- valid\n- invalid",
+            "target": "valid"
+          },
+          {
+            "input": "\"It is not always easy to grasp who is consuming which products. The following argument pertains to this question: Every infrequent user of Paul Mitchell shampoo is either a rare consumer of Nioxin shampoo or a loyal buyer of Caress soap, or both. No regular consumer of Lush soap is a rare consumer of Nioxin shampoo and, in the same time, a loyal buyer of Caress soap. It follows that whoever is an infrequent user of Paul Mitchell shampoo is not a regular consumer of Lush soap.\"\nIs the argument, given the explicitly stated premises, deductively valid or invalid?\nOptions:\n- valid\n- invalid",
+            "target": "invalid"
+          }
+        ],
+        "doc_to_text": "Q: {{input}}\nA:",
+        "doc_to_choice": [
+          "valid",
+          "invalid"
+        ],
+        "doc_to_target": "{{target}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0,
+        "pretrained": "openai/gpt-oss-120b",
+        "trust_remote_code": true,
+        "dtype": "bfloat16",
+        "parallelize": true,
+        "max_memory_per_gpu": "35GiB",
+        "attn_implementation": "eager",
+        "max_length": 4096
+      }
+    },
+    "leaderboard_bbh_geometric_shapes": {
+      "task": "leaderboard_bbh_geometric_shapes",
+      "dataset_path": "SaylorTwift/bbh",
+      "dataset_name": "geometric_shapes",
+      "test_split": "test",
+      "doc_to_text": "Q: {{input}}\nA:",
+      "doc_to_target": "{{target}}",
+      "unsafe_code": false,
+      "doc_to_choice": [
+        "(A)",
+        "(B)",
+        "(C)",
+        "(D)",
+        "(E)",
+        "(F)",
+        "(G)",
+        "(H)",
+        "(I)",
+        "(J)",
+        "(K)"
+      ],
+      "description": "Name geometric shapes from their SVG paths.",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "first_n",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": [
+          {
+            "input": "This SVG path element <path d=\"M 31.00,73.00 L 32.00,59.00 L 44.00,50.00 L 49.00,41.00 L 64.00,37.00 L 71.00,55.00 L 64.00,76.00 L 52.00,61.00 L 31.00,73.00\"/> draws a\nOptions:\n(A) circle\n(B) heptagon\n(C) hexagon\n(D) kite\n(E) line\n(F) octagon\n(G) pentagon\n(H) rectangle\n(I) sector\n(J) triangle",
+            "target": "(F)"
+          },
+          {
+            "input": "This SVG path element <path d=\"M 14.19,26.04 L 51.43,39.21 L 58.44,36.69 L 56.63,30.17 L 48.53,26.66 L 14.19,26.04\"/> draws a\nOptions:\n(A) circle\n(B) heptagon\n(C) hexagon\n(D) kite\n(E) line\n(F) octagon\n(G) pentagon\n(H) rectangle\n(I) sector\n(J) triangle",
+            "target": "(G)"
+          },
+          {
+            "input": "This SVG path element <path d=\"M 41.00,43.00 L 37.00,34.00 L 41.00,33.00 L 45.00,34.00 L 41.00,43.00\"/> draws a\nOptions:\n(A) circle\n(B) heptagon\n(C) hexagon\n(D) kite\n(E) line\n(F) octagon\n(G) pentagon\n(H) rectangle\n(I) sector\n(J) triangle",
+            "target": "(D)"
+          }
+        ],
+        "doc_to_text": "Q: {{input}}\nA:",
+        "doc_to_choice": [
+          "(A)",
+          "(B)",
+          "(C)",
+          "(D)",
+          "(E)",
+          "(F)",
+          "(G)",
+          "(H)",
+          "(I)",
+          "(J)",
+          "(K)"
+        ],
+        "doc_to_target": "{{target}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0,
+        "pretrained": "openai/gpt-oss-120b",
+        "trust_remote_code": true,
+        "dtype": "bfloat16",
+        "parallelize": true,
+        "max_memory_per_gpu": "35GiB",
+        "attn_implementation": "eager",
+        "max_length": 4096
+      }
+    },
+    "leaderboard_bbh_hyperbaton": {
+      "task": "leaderboard_bbh_hyperbaton",
+      "dataset_path": "SaylorTwift/bbh",
+      "dataset_name": "hyperbaton",
+      "test_split": "test",
+      "doc_to_text": "Q: {{input}}\nA:",
+      "doc_to_target": "{{target}}",
+      "unsafe_code": false,
+      "doc_to_choice": [
+        "(A)",
+        "(B)"
+      ],
+      "description": "Order adjectives correctly in English sentences.",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "first_n",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": [
+          {
+            "input": "Which sentence has the correct adjective order:\nOptions:\n(A) rubber terrible ship\n(B) terrible rubber ship",
+            "target": "(B)"
+          },
+          {
+            "input": "Which sentence has the correct adjective order:\nOptions:\n(A) repulsive small Brazilian exercise ship\n(B) Brazilian repulsive exercise small ship",
+            "target": "(A)"
+          },
+          {
+            "input": "Which sentence has the correct adjective order:\nOptions:\n(A) blue gold wonderful square shoe\n(B) wonderful square blue gold shoe",
+            "target": "(B)"
+          }
+        ],
+        "doc_to_text": "Q: {{input}}\nA:",
+        "doc_to_choice": [
+          "(A)",
+          "(B)"
+        ],
+        "doc_to_target": "{{target}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0,
+        "pretrained": "openai/gpt-oss-120b",
+        "trust_remote_code": true,
+        "dtype": "bfloat16",
+        "parallelize": true,
+        "max_memory_per_gpu": "35GiB",
+        "attn_implementation": "eager",
+        "max_length": 4096
+      }
+    },
+    "leaderboard_bbh_logical_deduction_five_objects": {
+      "task": "leaderboard_bbh_logical_deduction_five_objects",
+      "dataset_path": "SaylorTwift/bbh",
+      "dataset_name": "logical_deduction_five_objects",
+      "test_split": "test",
+      "doc_to_text": "Q: {{input}}\nA:",
+      "doc_to_target": "{{target}}",
+      "unsafe_code": false,
+      "doc_to_choice": [
+        "(A)",
+        "(B)",
+        "(C)",
+        "(D)",
+        "(E)"
+      ],
+      "description": "A logical deduction task which requires deducing the order of a sequence of objects.",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "first_n",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": [
+          {
+            "input": "The following paragraphs each describe a set of three objects arranged in a fixed order. The statements are logically consistent within each paragraph. In a golf tournament, there were three golfers: Amy, Eli, and Eve. Eve finished above Amy. Eli finished below Amy.\nOptions:\n(A) Amy finished last\n(B) Eli finished last\n(C) Eve finished last",
+            "target": "(B)"
+          },
+          {
+            "input": "The following paragraphs each describe a set of three objects arranged in a fixed order. The statements are logically consistent within each paragraph. On a shelf, there are three books: a white book, a green book, and an orange book. The green book is to the right of the white book. The orange book is the rightmost.\nOptions:\n(A) The white book is the leftmost\n(B) The green book is the leftmost\n(C) The orange book is the leftmost",
+            "target": "(A)"
+          },
+          {
+            "input": "The following paragraphs each describe a set of three objects arranged in a fixed order. The statements are logically consistent within each paragraph. On a shelf, there are three books: a red book, a gray book, and a white book. The white book is to the left of the gray book. The red book is the second from the left.\nOptions:\n(A) The red book is the leftmost\n(B) The gray book is the leftmost\n(C) The white book is the leftmost",
+            "target": "(C)"
+          }
+        ],
+        "doc_to_text": "Q: {{input}}\nA:",
+        "doc_to_choice": [
+          "(A)",
+          "(B)",
+          "(C)",
+          "(D)",
+          "(E)"
+        ],
+        "doc_to_target": "{{target}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0,
+        "pretrained": "openai/gpt-oss-120b",
+        "trust_remote_code": true,
+        "dtype": "bfloat16",
+        "parallelize": true,
+        "max_memory_per_gpu": "35GiB",
+        "attn_implementation": "eager",
+        "max_length": 4096
+      }
+    },
+    "leaderboard_bbh_logical_deduction_seven_objects": {
+      "task": "leaderboard_bbh_logical_deduction_seven_objects",
+      "dataset_path": "SaylorTwift/bbh",
+      "dataset_name": "logical_deduction_seven_objects",
+      "test_split": "test",
+      "doc_to_text": "Q: {{input}}\nA:",
+      "doc_to_target": "{{target}}",
+      "unsafe_code": false,
+      "doc_to_choice": [
+        "(A)",
+        "(B)",
+        "(C)",
+        "(D)",
+        "(E)",
+        "(F)",
+        "(G)"
+      ],
+      "description": "A logical deduction task which requires deducing the order of a sequence of objects.",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "first_n",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": [
+          {
+            "input": "The following paragraphs each describe a set of three objects arranged in a fixed order. The statements are logically consistent within each paragraph. In a golf tournament, there were three golfers: Amy, Eli, and Eve. Eve finished above Amy. Eli finished below Amy.\nOptions:\n(A) Amy finished last\n(B) Eli finished last\n(C) Eve finished last",
+            "target": "(B)"
+          },
+          {
+            "input": "The following paragraphs each describe a set of three objects arranged in a fixed order. The statements are logically consistent within each paragraph. On a shelf, there are three books: a white book, a green book, and an orange book. The green book is to the right of the white book. The orange book is the rightmost.\nOptions:\n(A) The white book is the leftmost\n(B) The green book is the leftmost\n(C) The orange book is the leftmost",
+            "target": "(A)"
+          },
+          {
+            "input": "The following paragraphs each describe a set of three objects arranged in a fixed order. The statements are logically consistent within each paragraph. On a shelf, there are three books: a red book, a gray book, and a white book. The white book is to the left of the gray book. The red book is the second from the left.\nOptions:\n(A) The red book is the leftmost\n(B) The gray book is the leftmost\n(C) The white book is the leftmost",
+            "target": "(C)"
+          }
+        ],
+        "doc_to_text": "Q: {{input}}\nA:",
+        "doc_to_choice": [
+          "(A)",
+          "(B)",
+          "(C)",
+          "(D)",
+          "(E)",
+          "(F)",
+          "(G)"
+        ],
+        "doc_to_target": "{{target}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0,
+        "pretrained": "openai/gpt-oss-120b",
+        "trust_remote_code": true,
+        "dtype": "bfloat16",
+        "parallelize": true,
+        "max_memory_per_gpu": "35GiB",
+        "attn_implementation": "eager",
+        "max_length": 4096
+      }
+    },
+    "leaderboard_bbh_logical_deduction_three_objects": {
+      "task": "leaderboard_bbh_logical_deduction_three_objects",
+      "dataset_path": "SaylorTwift/bbh",
+      "dataset_name": "logical_deduction_three_objects",
+      "test_split": "test",
+      "doc_to_text": "Q: {{input}}\nA:",
+      "doc_to_target": "{{target}}",
+      "unsafe_code": false,
+      "doc_to_choice": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "description": "A logical deduction task which requires deducing the order of a sequence of objects.",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "first_n",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": [
+          {
+            "input": "The following paragraphs each describe a set of three objects arranged in a fixed order. The statements are logically consistent within each paragraph. In a golf tournament, there were three golfers: Amy, Eli, and Eve. Eve finished above Amy. Eli finished below Amy.\nOptions:\n(A) Amy finished last\n(B) Eli finished last\n(C) Eve finished last",
+            "target": "(B)"
+          },
+          {
+            "input": "The following paragraphs each describe a set of three objects arranged in a fixed order. The statements are logically consistent within each paragraph. On a shelf, there are three books: a white book, a green book, and an orange book. The green book is to the right of the white book. The orange book is the rightmost.\nOptions:\n(A) The white book is the leftmost\n(B) The green book is the leftmost\n(C) The orange book is the leftmost",
+            "target": "(A)"
+          },
+          {
+            "input": "The following paragraphs each describe a set of three objects arranged in a fixed order. The statements are logically consistent within each paragraph. On a shelf, there are three books: a red book, a gray book, and a white book. The white book is to the left of the gray book. The red book is the second from the left.\nOptions:\n(A) The red book is the leftmost\n(B) The gray book is the leftmost\n(C) The white book is the leftmost",
+            "target": "(C)"
+          }
+        ],
+        "doc_to_text": "Q: {{input}}\nA:",
+        "doc_to_choice": [
+          "(A)",
+          "(B)",
+          "(C)"
+        ],
+        "doc_to_target": "{{target}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0,
+        "pretrained": "openai/gpt-oss-120b",
+        "trust_remote_code": true,
+        "dtype": "bfloat16",
+        "parallelize": true,
+        "max_memory_per_gpu": "35GiB",
+        "attn_implementation": "eager",
+        "max_length": 4096
+      }
+    },
+    "leaderboard_bbh_movie_recommendation": {
+      "task": "leaderboard_bbh_movie_recommendation",
+      "dataset_path": "SaylorTwift/bbh",
+      "dataset_name": "movie_recommendation",
+      "test_split": "test",
+      "doc_to_text": "Q: {{input}}\nA:",
+      "doc_to_target": "{{target}}",
+      "unsafe_code": false,
+      "doc_to_choice": [
+        "(A)",
+        "(B)",
+        "(C)",
+        "(D)",
+        "(E)",
+        "(F)"
+      ],
+      "description": "Recommend movies similar to the given list of movies.",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "first_n",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": [
+          {
+            "input": "Find a movie similar to Star Wars Episode IV - A New Hope, Indiana Jones and the Last Crusade, Star Wars Episode V - The Empire Strikes Back, The Big Lebowski:\nOptions:\n(A) Tetsuo\n(B) the Ironman\n(C) The Princess Bride\n(D) The Barkley Marathons The Race That Eats Its Young\n(E) Bug",
+            "target": "(C)"
+          },
+          {
+            "input": "Find a movie similar to Twister, The Silence of the Lambs, Independence Day, Braveheart:\nOptions:\n(A) They Shoot Horses\n(B) Don't They\n(C) Forrest Gump\n(D) The Salton Sea\n(E) Extreme Days",
+            "target": "(C)"
+          },
+          {
+            "input": "Find a movie similar to Minority Report, Total Recall, Inside Out, Forrest Gump:\nOptions:\n(A) Phenomena\n(B) Lilting\n(C) Catwoman\n(D) Edge of Tomorrow",
+            "target": "(D)"
+          }
+        ],
+        "doc_to_text": "Q: {{input}}\nA:",
+        "doc_to_choice": [
+          "(A)",
+          "(B)",
+          "(C)",
+          "(D)",
+          "(E)",
+          "(F)"
+        ],
+        "doc_to_target": "{{target}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0,
+        "pretrained": "openai/gpt-oss-120b",
+        "trust_remote_code": true,
+        "dtype": "bfloat16",
+        "parallelize": true,
+        "max_memory_per_gpu": "35GiB",
+        "attn_implementation": "eager",
+        "max_length": 4096
+      }
+    },
+    "leaderboard_bbh_navigate": {
+      "task": "leaderboard_bbh_navigate",
+      "dataset_path": "SaylorTwift/bbh",
+      "dataset_name": "navigate",
+      "test_split": "test",
+      "doc_to_text": "Q: {{input}}\nA:",
+      "doc_to_target": "{{target}}",
+      "unsafe_code": false,
+      "doc_to_choice": [
+        "Yes",
+        "No"
+      ],
+      "description": "Given a series of navigation instructions, determine whether one would end up back at the starting point.",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "first_n",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": [
+          {
+            "input": "If you follow these instructions, do you return to the starting point? Turn left. Turn around. Turn left. Take 7 steps. Take 2 steps. Take 4 steps. Take 8 steps.\nOptions:\n- Yes\n- No",
+            "target": "No"
+          },
+          {
+            "input": "If you follow these instructions, do you return to the starting point? Turn around. Take 1 step. Take 6 steps. Turn around. Take 6 steps. Take 9 steps. Take 1 step.\nOptions:\n- Yes\n- No",
+            "target": "No"
+          },
+          {
+            "input": "If you follow these instructions, do you return to the starting point? Always face forward. Take 2 steps right. Take 9 steps left. Take 7 steps right.\nOptions:\n- Yes\n- No",
+            "target": "Yes"
+          }
+        ],
+        "doc_to_text": "Q: {{input}}\nA:",
+        "doc_to_choice": [
+          "Yes",
+          "No"
+        ],
+        "doc_to_target": "{{target}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0,
+        "pretrained": "openai/gpt-oss-120b",
+        "trust_remote_code": true,
+        "dtype": "bfloat16",
+        "parallelize": true,
+        "max_memory_per_gpu": "35GiB",
+        "attn_implementation": "eager",
+        "max_length": 4096
+      }
+    },
+    "leaderboard_bbh_object_counting": {
+      "task": "leaderboard_bbh_object_counting",
+      "dataset_path": "SaylorTwift/bbh",
+      "dataset_name": "object_counting",
+      "test_split": "test",
+      "doc_to_text": "Q: {{input}}\nA:",
+      "doc_to_target": "{{target}}",
+      "unsafe_code": false,
+      "doc_to_choice": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18"
+      ],
+      "description": "Questions that involve enumerating objects and asking the model to count them.",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "first_n",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": [
+          {
+            "input": "I have a blackberry, a clarinet, a nectarine, a plum, a strawberry, a banana, a flute, an orange, and a violin. How many fruits do I have?",
+            "target": "6"
+          },
+          {
+            "input": "I have an orange, a raspberry, two peaches, a blackberry, an apple, a grape, a nectarine, and three plums. How many fruits do I have?",
+            "target": "11"
+          },
+          {
+            "input": "I have a lettuce head, a head of broccoli, an onion, a stalk of celery, two carrots, a garlic, and a yam. How many vegetables do I have?",
+            "target": "8"
+          }
+        ],
+        "doc_to_text": "Q: {{input}}\nA:",
+        "doc_to_choice": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18"
+        ],
+        "doc_to_target": "{{target}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0,
+        "pretrained": "openai/gpt-oss-120b",
+        "trust_remote_code": true,
+        "dtype": "bfloat16",
+        "parallelize": true,
+        "max_memory_per_gpu": "35GiB",
+        "attn_implementation": "eager",
+        "max_length": 4096
+      }
+    },
+    "leaderboard_bbh_penguins_in_a_table": {
+      "task": "leaderboard_bbh_penguins_in_a_table",
+      "dataset_path": "SaylorTwift/bbh",
+      "dataset_name": "penguins_in_a_table",
+      "test_split": "test",
+      "doc_to_text": "Q: {{input}}\nA:",
+      "doc_to_target": "{{target}}",
+      "unsafe_code": false,
+      "doc_to_choice": [
+        "(A)",
+        "(B)",
+        "(C)",
+        "(D)",
+        "(E)"
+      ],
+      "description": "Answer questions about a table of penguins and their attributes.",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "first_n",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": [
+          {
+            "input": "Here is a table where the first line is a header and each subsequent line is a penguin:  name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm.  We now add a penguin to the table:\nJames, 12, 90, 12\nHow many penguins are less than 8 years old?\nOptions:\n(A) 1\n(B) 2\n(C) 3\n(D) 4\n(E) 5",
+            "target": "(B)"
+          },
+          {
+            "input": "Here is a table where the first line is a header and each subsequent line is a penguin:  name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm.  Which is the youngest penguin?\nOptions:\n(A) Louis\n(B) Bernard\n(C) Vincent\n(D) Gwen\n(E) James",
+            "target": "(B)"
+          },
+          {
+            "input": "Here is a table where the first line is a header and each subsequent line is a penguin:  name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm.  What is the name of the second penguin sorted by alphabetic order?\nOptions:\n(A) Louis\n(B) Bernard\n(C) Vincent\n(D) Gwen\n(E) James",
+            "target": "(D)"
+          }
+        ],
+        "doc_to_text": "Q: {{input}}\nA:",
+        "doc_to_choice": [
+          "(A)",
+          "(B)",
+          "(C)",
+          "(D)",
+          "(E)"
+        ],
+        "doc_to_target": "{{target}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0,
+        "pretrained": "openai/gpt-oss-120b",
+        "trust_remote_code": true,
+        "dtype": "bfloat16",
+        "parallelize": true,
+        "max_memory_per_gpu": "35GiB",
+        "attn_implementation": "eager",
+        "max_length": 4096
+      }
+    },
+    "leaderboard_bbh_reasoning_about_colored_objects": {
+      "task": "leaderboard_bbh_reasoning_about_colored_objects",
+      "dataset_path": "SaylorTwift/bbh",
+      "dataset_name": "reasoning_about_colored_objects",
+      "test_split": "test",
+      "doc_to_text": "Q: {{input}}\nA:",
+      "doc_to_target": "{{target}}",
+      "unsafe_code": false,
+      "doc_to_choice": [
+        "(A)",
+        "(B)",
+        "(C)",
+        "(D)",
+        "(E)",
+        "(F)",
+        "(G)",
+        "(H)",
+        "(I)",
+        "(J)",
+        "(K)",
+        "(L)",
+        "(M)",
+        "(N)",
+        "(O)",
+        "(P)",
+        "(Q)",
+        "(R)"
+      ],
+      "description": "Answer extremely simple questions about the colors of objects on a surface.",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "first_n",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": [
+          {
+            "input": "On the nightstand, there is a red pencil, a purple mug, a burgundy keychain, a fuchsia teddy bear, a black plate, and a blue stress ball. What color is the stress ball?\nOptions:\n(A) red\n(B) orange\n(C) yellow\n(D) green\n(E) blue\n(F) brown\n(G) magenta\n(H) fuchsia\n(I) mauve\n(J) teal\n(K) turquoise\n(L) burgundy\n(M) silver\n(N) gold\n(O) black\n(P) grey\n(Q) purple\n(R) pink",
+            "target": "(E)"
+          },
+          {
+            "input": "On the table, you see a bunch of objects arranged in a row: a purple paperclip, a pink stress ball, a brown keychain, a green scrunchiephone charger, a mauve fidget spinner, and a burgundy pen. What is the color of the object directly to the right of the stress ball?\nOptions:\n(A) red\n(B) orange\n(C) yellow\n(D) green\n(E) blue\n(F) brown\n(G) magenta\n(H) fuchsia\n(I) mauve\n(J) teal\n(K) turquoise\n(L) burgundy\n(M) silver\n(N) gold\n(O) black\n(P) grey\n(Q) purple\n(R) pink",
+            "target": "(F)"
+          },
+          {
+            "input": "On the nightstand, you see the following items arranged in a row: a teal plate, a burgundy keychain, a yellow scrunchiephone charger, an orange mug, a pink notebook, and a grey cup. How many non-orange items do you see to the left of the teal item?\nOptions:\n(A) zero\n(B) one\n(C) two\n(D) three\n(E) four\n(F) five\n(G) six",
+            "target": "(A)"
+          }
+        ],
+        "doc_to_text": "Q: {{input}}\nA:",
+        "doc_to_choice": [
+          "(A)",
+          "(B)",
+          "(C)",
+          "(D)",
+          "(E)",
+          "(F)",
+          "(G)",
+          "(H)",
+          "(I)",
+          "(J)",
+          "(K)",
+          "(L)",
+          "(M)",
+          "(N)",
+          "(O)",
+          "(P)",
+          "(Q)",
+          "(R)"
+        ],
+        "doc_to_target": "{{target}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0,
+        "pretrained": "openai/gpt-oss-120b",
+        "trust_remote_code": true,
+        "dtype": "bfloat16",
+        "parallelize": true,
+        "max_memory_per_gpu": "35GiB",
+        "attn_implementation": "eager",
+        "max_length": 4096
+      }
+    },
+    "leaderboard_bbh_ruin_names": {
+      "task": "leaderboard_bbh_ruin_names",
+      "dataset_path": "SaylorTwift/bbh",
+      "dataset_name": "ruin_names",
+      "test_split": "test",
+      "doc_to_text": "Q: {{input}}\nA:",
+      "doc_to_target": "{{target}}",
+      "unsafe_code": false,
+      "doc_to_choice": [
+        "(A)",
+        "(B)",
+        "(C)",
+        "(D)",
+        "(E)",
+        "(F)"
+      ],
+      "description": "Select the humorous edit that 'ruins' the input movie or musical artist name.",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "first_n",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": [
+          {
+            "input": "Which of the following is a humorous edit of this artist or movie name: 'whitesnake'?\nOptions:\n(A) whitesnape\n(B) whitesnapke\n(C) whitesnuake\n(D) mwhitesnake",
+            "target": "(A)"
+          },
+          {
+            "input": "Which of the following is a humorous edit of this artist or movie name: 'one of our dinosaurs is missing'?\nOptions:\n(A) ofne of our dinosaurs is missing\n(B) one af our dinosaurs is missing\n(C) one of our dinosaurs is pissing\n(D) one of our dinosaur is missing",
+            "target": "(C)"
+          },
+          {
+            "input": "Which of the following is a humorous edit of this artist or movie name: 'counting crows'?\nOptions:\n(A) countingy crows\n(B) counting cows\n(C) courting crows\n(D) coutnting crows",
+            "target": "(B)"
+          }
+        ],
+        "doc_to_text": "Q: {{input}}\nA:",
+        "doc_to_choice": [
+          "(A)",
+          "(B)",
+          "(C)",
+          "(D)",
+          "(E)",
+          "(F)"
+        ],
+        "doc_to_target": "{{target}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0,
+        "pretrained": "openai/gpt-oss-120b",
+        "trust_remote_code": true,
+        "dtype": "bfloat16",
+        "parallelize": true,
+        "max_memory_per_gpu": "35GiB",
+        "attn_implementation": "eager",
+        "max_length": 4096
+      }
+    },
+    "leaderboard_bbh_salient_translation_error_detection": {
+      "task": "leaderboard_bbh_salient_translation_error_detection",
+      "dataset_path": "SaylorTwift/bbh",
+      "dataset_name": "salient_translation_error_detection",
+      "test_split": "test",
+      "doc_to_text": "Q: {{input}}\nA:",
+      "doc_to_target": "{{target}}",
+      "unsafe_code": false,
+      "doc_to_choice": [
+        "(A)",
+        "(B)",
+        "(C)",
+        "(D)",
+        "(E)",
+        "(F)"
+      ],
+      "description": "Detect the type of error in an English translation of a German source sentence.",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "first_n",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": [
+          {
+            "input": "The following translations from German to English contain a particular error. That error will be one of the following types: Named Entities: An entity (names, places, locations, etc.) is changed to a different entity. Numerical Values: Numerical values (ordinals or cardinals), dates, and/or units are changed. Modifiers or Adjectives: The modifiers and adjectives pertaining to a noun are changed. Negation or Antonyms: Introduce or remove a negation or change comparatives to their antonyms. Facts: Trivial factual errors not pertaining to the above classes are introduced in the translations. Dropped Content: A significant clause in the translation is removed. Please identify that error.  Source: In der Liste der Baudenkmale in Lenzen (Elbe) sind alle Baudenkmale der brandenburgischen Stadt Lenzen (Elbe) und ihrer Ortsteile aufgelistet.\nTranslation: In the list of architectural monuments in Lenzen all architectural monuments of the Brandenburg city of Lenzen and its districts are listed.\nThe translation contains an error pertaining to\nOptions:\n(A) Modifiers or Adjectives\n(B) Numerical Values\n(C) Negation or Antonyms\n(D) Named Entities\n(E) Dropped Content\n(F) Facts",
+            "target": "(D)"
+          },
+          {
+            "input": "The following translations from German to English contain a particular error. That error will be one of the following types: Named Entities: An entity (names, places, locations, etc.) is changed to a different entity. Numerical Values: Numerical values (ordinals or cardinals), dates, and/or units are changed. Modifiers or Adjectives: The modifiers and adjectives pertaining to a noun are changed. Negation or Antonyms: Introduce or remove a negation or change comparatives to their antonyms. Facts: Trivial factual errors not pertaining to the above classes are introduced in the translations. Dropped Content: A significant clause in the translation is removed. Please identify that error.  Source: Auf dieser Seite sind die Baudenkmäler der oberbayerischen Großen Kreisstadt Landsberg am Lech zusammengestellt.\nTranslation: On this page are compiled the architectural monuments of the town of Landsberg am Lech.\nThe translation contains an error pertaining to\nOptions:\n(A) Modifiers or Adjectives\n(B) Numerical Values\n(C) Negation or Antonyms\n(D) Named Entities\n(E) Dropped Content\n(F) Facts",
+            "target": "(E)"
+          },
+          {
+            "input": "The following translations from German to English contain a particular error. That error will be one of the following types: Named Entities: An entity (names, places, locations, etc.) is changed to a different entity. Numerical Values: Numerical values (ordinals or cardinals), dates, and/or units are changed. Modifiers or Adjectives: The modifiers and adjectives pertaining to a noun are changed. Negation or Antonyms: Introduce or remove a negation or change comparatives to their antonyms. Facts: Trivial factual errors not pertaining to the above classes are introduced in the translations. Dropped Content: A significant clause in the translation is removed. Please identify that error.  Source: Łeba ist eine Kleinstadt und ein Badeort im Powiat Lęborski der polnischen Woiwodschaft Pommern.\nTranslation: Eba is not a small town and seaside resort in the Powiat Léborski county of the Pomeranian Voivodeship of Poland.\nThe translation contains an error pertaining to\nOptions:\n(A) Modifiers or Adjectives\n(B) Numerical Values\n(C) Negation or Antonyms\n(D) Named Entities\n(E) Dropped Content\n(F) Facts",
+            "target": "(C)"
+          }
+        ],
+        "doc_to_text": "Q: {{input}}\nA:",
+        "doc_to_choice": [
+          "(A)",
+          "(B)",
+          "(C)",
+          "(D)",
+          "(E)",
+          "(F)"
+        ],
+        "doc_to_target": "{{target}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0,
+        "pretrained": "openai/gpt-oss-120b",
+        "trust_remote_code": true,
+        "dtype": "bfloat16",
+        "parallelize": true,
+        "max_memory_per_gpu": "35GiB",
+        "attn_implementation": "eager",
+        "max_length": 4096
+      }
+    },
+    "leaderboard_bbh_snarks": {
+      "task": "leaderboard_bbh_snarks",
+      "dataset_path": "SaylorTwift/bbh",
+      "dataset_name": "snarks",
+      "test_split": "test",
+      "doc_to_text": "Q: {{input}}\nA:",
+      "doc_to_target": "{{target}}",
+      "unsafe_code": false,
+      "doc_to_choice": [
+        "(A)",
+        "(B)"
+      ],
+      "description": "Determine which of two sentences is sarcastic.\n\nAccording to Cambridge University Dictionary, sarcasm is \"the use of remarks that clearly mean the opposite of what they say, made in order to hurt someone's feelings or to criticize something in a humorous way.\" Sarcastic sentences often contain satirical or ironic utterances, hyperboles, ambivalent or witty remarks.",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "first_n",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": [
+          {
+            "input": "Which statement is sarcastic?\nOptions:\n(A) Yes, because having interests and actively researching them is a huge waste\n(B) Yes, because having interests and actively researching them is a huge deal",
+            "target": "(A)"
+          },
+          {
+            "input": "Which statement is sarcastic?\nOptions:\n(A) No one is going to disagree with you on this. Avoiding ad hominem attacks really help your case\n(B) No one is going to disagree with you on this. Ad hominem attacks really help your case",
+            "target": "(B)"
+          },
+          {
+            "input": "Which statement is sarcastic?\nOptions:\n(A) Consistency in the league's punishments? What do you think this is supposed to be, politics?\n(B) Consistency in the league's punishments? What do you think this is supposed to be, moral?",
+            "target": "(A)"
+          }
+        ],
+        "doc_to_text": "Q: {{input}}\nA:",
+        "doc_to_choice": [
+          "(A)",
+          "(B)"
+        ],
+        "doc_to_target": "{{target}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0,
+        "pretrained": "openai/gpt-oss-120b",
+        "trust_remote_code": true,
+        "dtype": "bfloat16",
+        "parallelize": true,
+        "max_memory_per_gpu": "35GiB",
+        "attn_implementation": "eager",
+        "max_length": 4096
+      }
+    },
+    "leaderboard_bbh_sports_understanding": {
+      "task": "leaderboard_bbh_sports_understanding",
+      "dataset_path": "SaylorTwift/bbh",
+      "dataset_name": "sports_understanding",
+      "test_split": "test",
+      "doc_to_text": "Q: {{input}}\nA:",
+      "doc_to_target": "{{target}}",
+      "unsafe_code": false,
+      "doc_to_choice": [
+        "yes",
+        "no"
+      ],
+      "description": "Determine whether an artificially constructed sentence relating to sports is plausible or not.",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "first_n",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": [
+          {
+            "input": "Is the following sentence plausible? \"Bam Adebayo scored a reverse layup in the Western Conference Finals.\"",
+            "target": "yes"
+          },
+          {
+            "input": "Is the following sentence plausible? \"Santi Cazorla scored a touchdown.\"",
+            "target": "no"
+          },
+          {
+            "input": "Is the following sentence plausible? \"DeMar DeRozan was called for the goal tend.\"",
+            "target": "yes"
+          }
+        ],
+        "doc_to_text": "Q: {{input}}\nA:",
+        "doc_to_choice": [
+          "yes",
+          "no"
+        ],
+        "doc_to_target": "{{target}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0,
+        "pretrained": "openai/gpt-oss-120b",
+        "trust_remote_code": true,
+        "dtype": "bfloat16",
+        "parallelize": true,
+        "max_memory_per_gpu": "35GiB",
+        "attn_implementation": "eager",
+        "max_length": 4096
+      }
+    },
+    "leaderboard_bbh_temporal_sequences": {
+      "task": "leaderboard_bbh_temporal_sequences",
+      "dataset_path": "SaylorTwift/bbh",
+      "dataset_name": "temporal_sequences",
+      "test_split": "test",
+      "doc_to_text": "Q: {{input}}\nA:",
+      "doc_to_target": "{{target}}",
+      "unsafe_code": false,
+      "doc_to_choice": [
+        "(A)",
+        "(B)",
+        "(C)",
+        "(D)"
+      ],
+      "description": "Task description: Answer questions about which times certain events could have occurred.",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "first_n",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": [
+          {
+            "input": "Today, Emily went to the museum. Between what times could they have gone?\nWe know that:\nEmily woke up at 1pm.\nElizabeth saw Emily reading at the library from 2pm to 4pm.\nJessica saw Emily watching a movie at the theater from 4pm to 5pm.\nLeslie saw Emily waiting at the airport from 5pm to 6pm.\nWilliam saw Emily buying clothes at the mall from 6pm to 7pm.\nThe museum was closed after 7pm.\nBetween what times could Emily have gone to the museum?\nOptions:\n(A) 1pm to 2pm\n(B) 6pm to 7pm\n(C) 5pm to 6pm\n(D) 2pm to 4pm",
+            "target": "(A)"
+          },
+          {
+            "input": "Today, Elizabeth went to the amusement park. Between what times could they have gone?\nWe know that:\nElizabeth woke up at 7am.\nDavid saw Elizabeth fixing their computer at the electronic store from 1pm to 2pm.\nSarah saw Elizabeth playing tennis at the tennis court from 2pm to 3pm.\nSusan saw Elizabeth walking towards the Statue of Liberty from 3pm to 6pm.\nAndrew saw Elizabeth taking photos near the Eiffel Tower from 6pm to 9pm.\nEmily saw Elizabeth getting a coffee at the cafe from 9pm to 10pm.\nThe amusement park was closed after 10pm.\nBetween what times could Elizabeth have gone to the amusement park?\nOptions:\n(A) 7am to 1pm\n(B) 9pm to 10pm\n(C) 1pm to 2pm\n(D) 3pm to 6pm",
+            "target": "(A)"
+          },
+          {
+            "input": "Today, Tiffany went to the beach. Between what times could they have gone?\nWe know that:\nTiffany woke up at 5am.\nBetty saw Tiffany getting a coffee at the cafe from 5am to 6am.\nJessica saw Tiffany working at the office from 6am to 9am.\nJohn saw Tiffany stretching at a yoga studio from 9am to 12pm.\nSean saw Tiffany sitting on a rooftop from 12pm to 2pm.\nSarah saw Tiffany playing tennis at the tennis court from 2pm to 3pm.\nThe beach was closed after 4pm.\nBetween what times could Tiffany have gone to the beach?\nOptions:\n(A) 9am to 12pm\n(B) 12pm to 2pm\n(C) 5am to 6am\n(D) 3pm to 4pm",
+            "target": "(D)"
+          }
+        ],
+        "doc_to_text": "Q: {{input}}\nA:",
+        "doc_to_choice": [
+          "(A)",
+          "(B)",
+          "(C)",
+          "(D)"
+        ],
+        "doc_to_target": "{{target}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0,
+        "pretrained": "openai/gpt-oss-120b",
+        "trust_remote_code": true,
+        "dtype": "bfloat16",
+        "parallelize": true,
+        "max_memory_per_gpu": "35GiB",
+        "attn_implementation": "eager",
+        "max_length": 4096
+      }
+    },
+    "leaderboard_bbh_tracking_shuffled_objects_five_objects": {
+      "task": "leaderboard_bbh_tracking_shuffled_objects_five_objects",
+      "dataset_path": "SaylorTwift/bbh",
+      "dataset_name": "tracking_shuffled_objects_five_objects",
+      "test_split": "test",
+      "doc_to_text": "Q: {{input}}\nA:",
+      "doc_to_target": "{{target}}",
+      "unsafe_code": false,
+      "doc_to_choice": [
+        "(A)",
+        "(B)",
+        "(C)",
+        "(D)",
+        "(E)"
+      ],
+      "description": "A task requiring determining the final positions of a set of objects given their initial positions and a description of a sequence of swaps.",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "first_n",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": [
+          {
+            "input": "Alice, Bob, and Claire are playing a game. At the start of the game, they are each holding a ball: Alice has a yellow ball, Bob has a blue ball, and Claire has a pink ball.\nAs the game progresses, pairs of players trade balls. First, Claire and Alice swap balls. Then, Alice and Bob swap balls. Finally, Claire and Bob swap balls. At the end of the game, Bob has the\nOptions:\n(A) yellow ball\n(B) blue ball\n(C) pink ball",
+            "target": "(A)"
+          },
+          {
+            "input": "Alice, Bob, and Claire are playing a game. At the start of the game, they are each holding a ball: Alice has a white ball, Bob has a purple ball, and Claire has a pink ball.\nAs the game progresses, pairs of players trade balls. First, Bob and Alice swap balls. Then, Bob and Claire swap balls. Finally, Bob and Alice swap balls. At the end of the game, Alice has the\nOptions:\n(A) white ball\n(B) purple ball\n(C) pink ball",
+            "target": "(C)"
+          },
+          {
+            "input": "Alice, Bob, and Claire are dancers at a square dance. At the start of a song, they each have a partner: Alice is dancing with Lola, Bob is dancing with Rodrigo, and Claire is dancing with Patrick.\nThroughout the song, the dancers often trade partners. First, Alice and Bob switch partners. Then, Claire and Bob switch partners. Finally, Bob and Alice switch partners. At the end of the dance, Alice is dancing with\nOptions:\n(A) Lola\n(B) Rodrigo\n(C) Patrick",
+            "target": "(C)"
+          }
+        ],
+        "doc_to_text": "Q: {{input}}\nA:",
+        "doc_to_choice": [
+          "(A)",
+          "(B)",
+          "(C)",
+          "(D)",
+          "(E)"
+        ],
+        "doc_to_target": "{{target}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0,
+        "pretrained": "openai/gpt-oss-120b",
+        "trust_remote_code": true,
+        "dtype": "bfloat16",
+        "parallelize": true,
+        "max_memory_per_gpu": "35GiB",
+        "attn_implementation": "eager",
+        "max_length": 4096
+      }
+    },
+    "leaderboard_bbh_tracking_shuffled_objects_seven_objects": {
+      "task": "leaderboard_bbh_tracking_shuffled_objects_seven_objects",
+      "dataset_path": "SaylorTwift/bbh",
+      "dataset_name": "tracking_shuffled_objects_seven_objects",
+      "test_split": "test",
+      "doc_to_text": "Q: {{input}}\nA:",
+      "doc_to_target": "{{target}}",
+      "unsafe_code": false,
+      "doc_to_choice": [
+        "(A)",
+        "(B)",
+        "(C)",
+        "(D)",
+        "(E)",
+        "(F)",
+        "(G)"
+      ],
+      "description": "A task requiring determining the final positions of a set of objects given their initial positions and a description of a sequence of swaps.",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "first_n",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": [
+          {
+            "input": "Alice, Bob, and Claire are playing a game. At the start of the game, they are each holding a ball: Alice has a yellow ball, Bob has a blue ball, and Claire has a pink ball.\nAs the game progresses, pairs of players trade balls. First, Claire and Alice swap balls. Then, Alice and Bob swap balls. Finally, Claire and Bob swap balls. At the end of the game, Bob has the\nOptions:\n(A) yellow ball\n(B) blue ball\n(C) pink ball",
+            "target": "(A)"
+          },
+          {
+            "input": "Alice, Bob, and Claire are playing a game. At the start of the game, they are each holding a ball: Alice has a white ball, Bob has a purple ball, and Claire has a pink ball.\nAs the game progresses, pairs of players trade balls. First, Bob and Alice swap balls. Then, Bob and Claire swap balls. Finally, Bob and Alice swap balls. At the end of the game, Alice has the\nOptions:\n(A) white ball\n(B) purple ball\n(C) pink ball",
+            "target": "(C)"
+          },
+          {
+            "input": "Alice, Bob, and Claire are dancers at a square dance. At the start of a song, they each have a partner: Alice is dancing with Lola, Bob is dancing with Rodrigo, and Claire is dancing with Patrick.\nThroughout the song, the dancers often trade partners. First, Alice and Bob switch partners. Then, Claire and Bob switch partners. Finally, Bob and Alice switch partners. At the end of the dance, Alice is dancing with\nOptions:\n(A) Lola\n(B) Rodrigo\n(C) Patrick",
+            "target": "(C)"
+          }
+        ],
+        "doc_to_text": "Q: {{input}}\nA:",
+        "doc_to_choice": [
+          "(A)",
+          "(B)",
+          "(C)",
+          "(D)",
+          "(E)",
+          "(F)",
+          "(G)"
+        ],
+        "doc_to_target": "{{target}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0,
+        "pretrained": "openai/gpt-oss-120b",
+        "trust_remote_code": true,
+        "dtype": "bfloat16",
+        "parallelize": true,
+        "max_memory_per_gpu": "35GiB",
+        "attn_implementation": "eager",
+        "max_length": 4096
+      }
+    },
+    "leaderboard_bbh_tracking_shuffled_objects_three_objects": {
+      "task": "leaderboard_bbh_tracking_shuffled_objects_three_objects",
+      "dataset_path": "SaylorTwift/bbh",
+      "dataset_name": "tracking_shuffled_objects_three_objects",
+      "test_split": "test",
+      "doc_to_text": "Q: {{input}}\nA:",
+      "doc_to_target": "{{target}}",
+      "unsafe_code": false,
+      "doc_to_choice": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "description": "A task requiring determining the final positions of a set of objects given their initial positions and a description of a sequence of swaps.",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "first_n",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": [
+          {
+            "input": "Alice, Bob, and Claire are playing a game. At the start of the game, they are each holding a ball: Alice has a yellow ball, Bob has a blue ball, and Claire has a pink ball.\nAs the game progresses, pairs of players trade balls. First, Claire and Alice swap balls. Then, Alice and Bob swap balls. Finally, Claire and Bob swap balls. At the end of the game, Bob has the\nOptions:\n(A) yellow ball\n(B) blue ball\n(C) pink ball",
+            "target": "(A)"
+          },
+          {
+            "input": "Alice, Bob, and Claire are playing a game. At the start of the game, they are each holding a ball: Alice has a white ball, Bob has a purple ball, and Claire has a pink ball.\nAs the game progresses, pairs of players trade balls. First, Bob and Alice swap balls. Then, Bob and Claire swap balls. Finally, Bob and Alice swap balls. At the end of the game, Alice has the\nOptions:\n(A) white ball\n(B) purple ball\n(C) pink ball",
+            "target": "(C)"
+          },
+          {
+            "input": "Alice, Bob, and Claire are dancers at a square dance. At the start of a song, they each have a partner: Alice is dancing with Lola, Bob is dancing with Rodrigo, and Claire is dancing with Patrick.\nThroughout the song, the dancers often trade partners. First, Alice and Bob switch partners. Then, Claire and Bob switch partners. Finally, Bob and Alice switch partners. At the end of the dance, Alice is dancing with\nOptions:\n(A) Lola\n(B) Rodrigo\n(C) Patrick",
+            "target": "(C)"
+          }
+        ],
+        "doc_to_text": "Q: {{input}}\nA:",
+        "doc_to_choice": [
+          "(A)",
+          "(B)",
+          "(C)"
+        ],
+        "doc_to_target": "{{target}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0,
+        "pretrained": "openai/gpt-oss-120b",
+        "trust_remote_code": true,
+        "dtype": "bfloat16",
+        "parallelize": true,
+        "max_memory_per_gpu": "35GiB",
+        "attn_implementation": "eager",
+        "max_length": 4096
+      }
+    },
+    "leaderboard_bbh_web_of_lies": {
+      "task": "leaderboard_bbh_web_of_lies",
+      "dataset_path": "SaylorTwift/bbh",
+      "dataset_name": "web_of_lies",
+      "test_split": "test",
+      "doc_to_text": "Q: {{input}}\nA:",
+      "doc_to_target": "{{target}}",
+      "unsafe_code": false,
+      "doc_to_choice": [
+        "Yes",
+        "No"
+      ],
+      "description": "Evaluate a random boolean function expressed as a word problem.",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "first_n",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": [
+          {
+            "input": "Question: Fidel tells the truth. Jerry says Fidel tells the truth. Vina says Jerry tells the truth. Millicent says Vina lies. Raymond says Millicent lies. Does Raymond tell the truth?",
+            "target": "Yes"
+          },
+          {
+            "input": "Question: Kristian lies. Millie says Kristian lies. Maybelle says Millie tells the truth. Fidel says Maybelle lies. Leda says Fidel lies. Does Leda tell the truth?",
+            "target": "Yes"
+          },
+          {
+            "input": "Question: Kristian tells the truth. Michaela says Kristian lies. Raymond says Michaela tells the truth. Osvaldo says Raymond tells the truth. Jamey says Osvaldo tells the truth. Does Jamey tell the truth?",
+            "target": "No"
+          }
+        ],
+        "doc_to_text": "Q: {{input}}\nA:",
+        "doc_to_choice": [
+          "Yes",
+          "No"
+        ],
+        "doc_to_target": "{{target}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0,
+        "pretrained": "openai/gpt-oss-120b",
+        "trust_remote_code": true,
+        "dtype": "bfloat16",
+        "parallelize": true,
+        "max_memory_per_gpu": "35GiB",
+        "attn_implementation": "eager",
+        "max_length": 4096
+      }
+    },
+    "leaderboard_gpqa_diamond": {
+      "task": "leaderboard_gpqa_diamond",
+      "dataset_path": "Idavidrein/gpqa",
+      "dataset_name": "gpqa_diamond",
+      "training_split": "train",
+      "validation_split": "train",
+      "process_docs": "def process_docs(dataset: datasets.Dataset) -> datasets.Dataset:\n    def _process_doc(doc):\n        choices = [\n            preprocess(doc[\"Incorrect Answer 1\"]),\n            preprocess(doc[\"Incorrect Answer 2\"]),\n            preprocess(doc[\"Incorrect Answer 3\"]),\n            preprocess(doc[\"Correct Answer\"]),\n        ]\n\n        random.shuffle(choices)\n        correct_answer_index = choices.index(preprocess(doc[\"Correct Answer\"]))\n\n        out_doc = {\n            \"choice1\": choices[0],\n            \"choice2\": choices[1],\n            \"choice3\": choices[2],\n            \"choice4\": choices[3],\n            \"answer\": f\"({chr(65 + correct_answer_index)})\",\n        }\n        return out_doc\n\n    return dataset.map(_process_doc)\n",
+      "doc_to_text": "What is the correct answer to this question:{{Question}}\nChoices:\n(A) {{choice1}}\n(B) {{choice2}}\n(C) {{choice3}}\n(D) {{choice4}}\nAnswer: ",
+      "doc_to_target": "answer",
+      "unsafe_code": false,
+      "doc_to_choice": [
+        "(A)",
+        "(B)",
+        "(C)",
+        "(D)"
+      ],
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "first_n",
+        "split": null,
+        "process_docs": "<function process_docs at 0x151dd185cf40>",
+        "fewshot_indices": null,
+        "samples": null,
+        "doc_to_text": "What is the correct answer to this question:{{Question}}\nChoices:\n(A) {{choice1}}\n(B) {{choice2}}\n(C) {{choice3}}\n(D) {{choice4}}\nAnswer: ",
+        "doc_to_choice": [
+          "(A)",
+          "(B)",
+          "(C)",
+          "(D)"
+        ],
+        "doc_to_target": "answer",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0,
+        "pretrained": "openai/gpt-oss-120b",
+        "trust_remote_code": true,
+        "dtype": "bfloat16",
+        "parallelize": true,
+        "max_memory_per_gpu": "35GiB",
+        "attn_implementation": "eager",
+        "max_length": 4096
+      }
+    },
+    "leaderboard_gpqa_extended": {
+      "task": "leaderboard_gpqa_extended",
+      "dataset_path": "Idavidrein/gpqa",
+      "dataset_name": "gpqa_extended",
+      "training_split": "train",
+      "validation_split": "train",
+      "process_docs": "def process_docs(dataset: datasets.Dataset) -> datasets.Dataset:\n    def _process_doc(doc):\n        choices = [\n            preprocess(doc[\"Incorrect Answer 1\"]),\n            preprocess(doc[\"Incorrect Answer 2\"]),\n            preprocess(doc[\"Incorrect Answer 3\"]),\n            preprocess(doc[\"Correct Answer\"]),\n        ]\n\n        random.shuffle(choices)\n        correct_answer_index = choices.index(preprocess(doc[\"Correct Answer\"]))\n\n        out_doc = {\n            \"choice1\": choices[0],\n            \"choice2\": choices[1],\n            \"choice3\": choices[2],\n            \"choice4\": choices[3],\n            \"answer\": f\"({chr(65 + correct_answer_index)})\",\n        }\n        return out_doc\n\n    return dataset.map(_process_doc)\n",
+      "doc_to_text": "What is the correct answer to this question:{{Question}}\nChoices:\n(A) {{choice1}}\n(B) {{choice2}}\n(C) {{choice3}}\n(D) {{choice4}}\nAnswer: ",
+      "doc_to_target": "answer",
+      "unsafe_code": false,
+      "doc_to_choice": [
+        "(A)",
+        "(B)",
+        "(C)",
+        "(D)"
+      ],
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "first_n",
+        "split": null,
+        "process_docs": "<function process_docs at 0x151dd143c5e0>",
+        "fewshot_indices": null,
+        "samples": null,
+        "doc_to_text": "What is the correct answer to this question:{{Question}}\nChoices:\n(A) {{choice1}}\n(B) {{choice2}}\n(C) {{choice3}}\n(D) {{choice4}}\nAnswer: ",
+        "doc_to_choice": [
+          "(A)",
+          "(B)",
+          "(C)",
+          "(D)"
+        ],
+        "doc_to_target": "answer",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0,
+        "pretrained": "openai/gpt-oss-120b",
+        "trust_remote_code": true,
+        "dtype": "bfloat16",
+        "parallelize": true,
+        "max_memory_per_gpu": "35GiB",
+        "attn_implementation": "eager",
+        "max_length": 4096
+      }
+    },
+    "leaderboard_gpqa_main": {
+      "task": "leaderboard_gpqa_main",
+      "dataset_path": "Idavidrein/gpqa",
+      "dataset_name": "gpqa_main",
+      "training_split": "train",
+      "validation_split": "train",
+      "process_docs": "def process_docs(dataset: datasets.Dataset) -> datasets.Dataset:\n    def _process_doc(doc):\n        choices = [\n            preprocess(doc[\"Incorrect Answer 1\"]),\n            preprocess(doc[\"Incorrect Answer 2\"]),\n            preprocess(doc[\"Incorrect Answer 3\"]),\n            preprocess(doc[\"Correct Answer\"]),\n        ]\n\n        random.shuffle(choices)\n        correct_answer_index = choices.index(preprocess(doc[\"Correct Answer\"]))\n\n        out_doc = {\n            \"choice1\": choices[0],\n            \"choice2\": choices[1],\n            \"choice3\": choices[2],\n            \"choice4\": choices[3],\n            \"answer\": f\"({chr(65 + correct_answer_index)})\",\n        }\n        return out_doc\n\n    return dataset.map(_process_doc)\n",
+      "doc_to_text": "What is the correct answer to this question:{{Question}}\nChoices:\n(A) {{choice1}}\n(B) {{choice2}}\n(C) {{choice3}}\n(D) {{choice4}}\nAnswer: ",
+      "doc_to_target": "answer",
+      "unsafe_code": false,
+      "doc_to_choice": [
+        "(A)",
+        "(B)",
+        "(C)",
+        "(D)"
+      ],
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "first_n",
+        "split": null,
+        "process_docs": "<function process_docs at 0x151dd1f68720>",
+        "fewshot_indices": null,
+        "samples": null,
+        "doc_to_text": "What is the correct answer to this question:{{Question}}\nChoices:\n(A) {{choice1}}\n(B) {{choice2}}\n(C) {{choice3}}\n(D) {{choice4}}\nAnswer: ",
+        "doc_to_choice": [
+          "(A)",
+          "(B)",
+          "(C)",
+          "(D)"
+        ],
+        "doc_to_target": "answer",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0,
+        "pretrained": "openai/gpt-oss-120b",
+        "trust_remote_code": true,
+        "dtype": "bfloat16",
+        "parallelize": true,
+        "max_memory_per_gpu": "35GiB",
+        "attn_implementation": "eager",
+        "max_length": 4096
+      }
+    },
+    "mmlu_astronomy": {
+      "task": "mmlu_astronomy",
+      "task_alias": "astronomy",
+      "tag": "mmlu_stem_tasks",
+      "dataset_path": "cais/mmlu",
+      "dataset_name": "astronomy",
+      "test_split": "test",
+      "fewshot_split": "dev",
+      "doc_to_text": "{{question.strip()}}\nA. {{choices[0]}}\nB. {{choices[1]}}\nC. {{choices[2]}}\nD. {{choices[3]}}\nAnswer:",
+      "doc_to_target": "answer",
+      "unsafe_code": false,
+      "doc_to_choice": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "description": "The following are multiple choice questions (with answers) about astronomy.\n\n",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "first_n",
+        "split": "dev",
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": null,
+        "doc_to_text": "{{question.strip()}}\nA. {{choices[0]}}\nB. {{choices[1]}}\nC. {{choices[2]}}\nD. {{choices[3]}}\nAnswer:",
+        "doc_to_choice": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "doc_to_target": "answer",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0,
+        "pretrained": "openai/gpt-oss-120b",
+        "trust_remote_code": true,
+        "dtype": "bfloat16",
+        "parallelize": true,
+        "max_memory_per_gpu": "35GiB",
+        "attn_implementation": "eager",
+        "max_length": 4096
+      }
+    },
+    "mmlu_college_physics": {
+      "task": "mmlu_college_physics",
+      "task_alias": "college_physics",
+      "tag": "mmlu_stem_tasks",
+      "dataset_path": "cais/mmlu",
+      "dataset_name": "college_physics",
+      "test_split": "test",
+      "fewshot_split": "dev",
+      "doc_to_text": "{{question.strip()}}\nA. {{choices[0]}}\nB. {{choices[1]}}\nC. {{choices[2]}}\nD. {{choices[3]}}\nAnswer:",
+      "doc_to_target": "answer",
+      "unsafe_code": false,
+      "doc_to_choice": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "description": "The following are multiple choice questions (with answers) about college physics.\n\n",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "first_n",
+        "split": "dev",
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": null,
+        "doc_to_text": "{{question.strip()}}\nA. {{choices[0]}}\nB. {{choices[1]}}\nC. {{choices[2]}}\nD. {{choices[3]}}\nAnswer:",
+        "doc_to_choice": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "doc_to_target": "answer",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0,
+        "pretrained": "openai/gpt-oss-120b",
+        "trust_remote_code": true,
+        "dtype": "bfloat16",
+        "parallelize": true,
+        "max_memory_per_gpu": "35GiB",
+        "attn_implementation": "eager",
+        "max_length": 4096
+      }
+    },
+    "mmlu_high_school_physics": {
+      "task": "mmlu_high_school_physics",
+      "task_alias": "high_school_physics",
+      "tag": "mmlu_stem_tasks",
+      "dataset_path": "cais/mmlu",
+      "dataset_name": "high_school_physics",
+      "test_split": "test",
+      "fewshot_split": "dev",
+      "doc_to_text": "{{question.strip()}}\nA. {{choices[0]}}\nB. {{choices[1]}}\nC. {{choices[2]}}\nD. {{choices[3]}}\nAnswer:",
+      "doc_to_target": "answer",
+      "unsafe_code": false,
+      "doc_to_choice": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "description": "The following are multiple choice questions (with answers) about high school physics.\n\n",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "first_n",
+        "split": "dev",
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": null,
+        "doc_to_text": "{{question.strip()}}\nA. {{choices[0]}}\nB. {{choices[1]}}\nC. {{choices[2]}}\nD. {{choices[3]}}\nAnswer:",
+        "doc_to_choice": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "doc_to_target": "answer",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0,
+        "pretrained": "openai/gpt-oss-120b",
+        "trust_remote_code": true,
+        "dtype": "bfloat16",
+        "parallelize": true,
+        "max_memory_per_gpu": "35GiB",
+        "attn_implementation": "eager",
+        "max_length": 4096
+      }
+    }
+  },
+  "versions": {
+    "leaderboard_bbh": null,
+    "leaderboard_bbh_boolean_expressions": 1.0,
+    "leaderboard_bbh_causal_judgement": 1.0,
+    "leaderboard_bbh_date_understanding": 1.0,
+    "leaderboard_bbh_disambiguation_qa": 1.0,
+    "leaderboard_bbh_formal_fallacies": 1.0,
+    "leaderboard_bbh_geometric_shapes": 1.0,
+    "leaderboard_bbh_hyperbaton": 1.0,
+    "leaderboard_bbh_logical_deduction_five_objects": 1.0,
+    "leaderboard_bbh_logical_deduction_seven_objects": 1.0,
+    "leaderboard_bbh_logical_deduction_three_objects": 1.0,
+    "leaderboard_bbh_movie_recommendation": 1.0,
+    "leaderboard_bbh_navigate": 1.0,
+    "leaderboard_bbh_object_counting": 1.0,
+    "leaderboard_bbh_penguins_in_a_table": 1.0,
+    "leaderboard_bbh_reasoning_about_colored_objects": 1.0,
+    "leaderboard_bbh_ruin_names": 1.0,
+    "leaderboard_bbh_salient_translation_error_detection": 1.0,
+    "leaderboard_bbh_snarks": 1.0,
+    "leaderboard_bbh_sports_understanding": 1.0,
+    "leaderboard_bbh_temporal_sequences": 1.0,
+    "leaderboard_bbh_tracking_shuffled_objects_five_objects": 1.0,
+    "leaderboard_bbh_tracking_shuffled_objects_seven_objects": 1.0,
+    "leaderboard_bbh_tracking_shuffled_objects_three_objects": 1.0,
+    "leaderboard_bbh_web_of_lies": 1.0,
+    "leaderboard_gpqa": null,
+    "leaderboard_gpqa_diamond": 1.0,
+    "leaderboard_gpqa_extended": 1.0,
+    "leaderboard_gpqa_main": 1.0,
+    "mmlu_astronomy": 1.0,
+    "mmlu_college_physics": 1.0,
+    "mmlu_high_school_physics": 1.0
+  },
+  "n-shot": {
+    "leaderboard_bbh_boolean_expressions": 0,
+    "leaderboard_bbh_causal_judgement": 0,
+    "leaderboard_bbh_date_understanding": 0,
+    "leaderboard_bbh_disambiguation_qa": 0,
+    "leaderboard_bbh_formal_fallacies": 0,
+    "leaderboard_bbh_geometric_shapes": 0,
+    "leaderboard_bbh_hyperbaton": 0,
+    "leaderboard_bbh_logical_deduction_five_objects": 0,
+    "leaderboard_bbh_logical_deduction_seven_objects": 0,
+    "leaderboard_bbh_logical_deduction_three_objects": 0,
+    "leaderboard_bbh_movie_recommendation": 0,
+    "leaderboard_bbh_navigate": 0,
+    "leaderboard_bbh_object_counting": 0,
+    "leaderboard_bbh_penguins_in_a_table": 0,
+    "leaderboard_bbh_reasoning_about_colored_objects": 0,
+    "leaderboard_bbh_ruin_names": 0,
+    "leaderboard_bbh_salient_translation_error_detection": 0,
+    "leaderboard_bbh_snarks": 0,
+    "leaderboard_bbh_sports_understanding": 0,
+    "leaderboard_bbh_temporal_sequences": 0,
+    "leaderboard_bbh_tracking_shuffled_objects_five_objects": 0,
+    "leaderboard_bbh_tracking_shuffled_objects_seven_objects": 0,
+    "leaderboard_bbh_tracking_shuffled_objects_three_objects": 0,
+    "leaderboard_bbh_web_of_lies": 0,
+    "leaderboard_gpqa_diamond": 0,
+    "leaderboard_gpqa_extended": 0,
+    "leaderboard_gpqa_main": 0,
+    "mmlu_astronomy": 0,
+    "mmlu_college_physics": 0,
+    "mmlu_high_school_physics": 0
+  },
+  "higher_is_better": {
+    "leaderboard_bbh": {
+      "acc_norm": true
+    },
+    "leaderboard_bbh_boolean_expressions": {
+      "acc_norm": true
+    },
+    "leaderboard_bbh_causal_judgement": {
+      "acc_norm": true
+    },
+    "leaderboard_bbh_date_understanding": {
+      "acc_norm": true
+    },
+    "leaderboard_bbh_disambiguation_qa": {
+      "acc_norm": true
+    },
+    "leaderboard_bbh_formal_fallacies": {
+      "acc_norm": true
+    },
+    "leaderboard_bbh_geometric_shapes": {
+      "acc_norm": true
+    },
+    "leaderboard_bbh_hyperbaton": {
+      "acc_norm": true
+    },
+    "leaderboard_bbh_logical_deduction_five_objects": {
+      "acc_norm": true
+    },
+    "leaderboard_bbh_logical_deduction_seven_objects": {
+      "acc_norm": true
+    },
+    "leaderboard_bbh_logical_deduction_three_objects": {
+      "acc_norm": true
+    },
+    "leaderboard_bbh_movie_recommendation": {
+      "acc_norm": true
+    },
+    "leaderboard_bbh_navigate": {
+      "acc_norm": true
+    },
+    "leaderboard_bbh_object_counting": {
+      "acc_norm": true
+    },
+    "leaderboard_bbh_penguins_in_a_table": {
+      "acc_norm": true
+    },
+    "leaderboard_bbh_reasoning_about_colored_objects": {
+      "acc_norm": true
+    },
+    "leaderboard_bbh_ruin_names": {
+      "acc_norm": true
+    },
+    "leaderboard_bbh_salient_translation_error_detection": {
+      "acc_norm": true
+    },
+    "leaderboard_bbh_snarks": {
+      "acc_norm": true
+    },
+    "leaderboard_bbh_sports_understanding": {
+      "acc_norm": true
+    },
+    "leaderboard_bbh_temporal_sequences": {
+      "acc_norm": true
+    },
+    "leaderboard_bbh_tracking_shuffled_objects_five_objects": {
+      "acc_norm": true
+    },
+    "leaderboard_bbh_tracking_shuffled_objects_seven_objects": {
+      "acc_norm": true
+    },
+    "leaderboard_bbh_tracking_shuffled_objects_three_objects": {
+      "acc_norm": true
+    },
+    "leaderboard_bbh_web_of_lies": {
+      "acc_norm": true
+    },
+    "leaderboard_gpqa": {
+      "acc_norm": true
+    },
+    "leaderboard_gpqa_diamond": {
+      "acc_norm": true
+    },
+    "leaderboard_gpqa_extended": {
+      "acc_norm": true
+    },
+    "leaderboard_gpqa_main": {
+      "acc_norm": true
+    },
+    "mmlu_astronomy": {
+      "acc": true
+    },
+    "mmlu_college_physics": {
+      "acc": true
+    },
+    "mmlu_high_school_physics": {
+      "acc": true
+    }
+  },
+  "n-samples": {
+    "leaderboard_bbh_boolean_expressions": {
+      "original": 250,
+      "effective": 250
+    },
+    "leaderboard_bbh_causal_judgement": {
+      "original": 187,
+      "effective": 187
+    },
+    "leaderboard_bbh_date_understanding": {
+      "original": 250,
+      "effective": 250
+    },
+    "leaderboard_bbh_disambiguation_qa": {
+      "original": 250,
+      "effective": 250
+    },
+    "leaderboard_bbh_formal_fallacies": {
+      "original": 250,
+      "effective": 250
+    },
+    "leaderboard_bbh_geometric_shapes": {
+      "original": 250,
+      "effective": 250
+    },
+    "leaderboard_bbh_hyperbaton": {
+      "original": 250,
+      "effective": 250
+    },
+    "leaderboard_bbh_logical_deduction_five_objects": {
+      "original": 250,
+      "effective": 250
+    },
+    "leaderboard_bbh_logical_deduction_seven_objects": {
+      "original": 250,
+      "effective": 250
+    },
+    "leaderboard_bbh_logical_deduction_three_objects": {
+      "original": 250,
+      "effective": 250
+    },
+    "leaderboard_bbh_movie_recommendation": {
+      "original": 250,
+      "effective": 250
+    },
+    "leaderboard_bbh_navigate": {
+      "original": 250,
+      "effective": 250
+    },
+    "leaderboard_bbh_object_counting": {
+      "original": 250,
+      "effective": 250
+    },
+    "leaderboard_bbh_penguins_in_a_table": {
+      "original": 146,
+      "effective": 146
+    },
+    "leaderboard_bbh_reasoning_about_colored_objects": {
+      "original": 250,
+      "effective": 250
+    },
+    "leaderboard_bbh_ruin_names": {
+      "original": 250,
+      "effective": 250
+    },
+    "leaderboard_bbh_salient_translation_error_detection": {
+      "original": 250,
+      "effective": 250
+    },
+    "leaderboard_bbh_snarks": {
+      "original": 178,
+      "effective": 178
+    },
+    "leaderboard_bbh_sports_understanding": {
+      "original": 250,
+      "effective": 250
+    },
+    "leaderboard_bbh_temporal_sequences": {
+      "original": 250,
+      "effective": 250
+    },
+    "leaderboard_bbh_tracking_shuffled_objects_five_objects": {
+      "original": 250,
+      "effective": 250
+    },
+    "leaderboard_bbh_tracking_shuffled_objects_seven_objects": {
+      "original": 250,
+      "effective": 250
+    },
+    "leaderboard_bbh_tracking_shuffled_objects_three_objects": {
+      "original": 250,
+      "effective": 250
+    },
+    "leaderboard_bbh_web_of_lies": {
+      "original": 250,
+      "effective": 250
+    },
+    "leaderboard_gpqa_diamond": {
+      "original": 198,
+      "effective": 198
+    },
+    "leaderboard_gpqa_extended": {
+      "original": 546,
+      "effective": 546
+    },
+    "leaderboard_gpqa_main": {
+      "original": 448,
+      "effective": 448
+    },
+    "mmlu_astronomy": {
+      "original": 152,
+      "effective": 152
+    },
+    "mmlu_high_school_physics": {
+      "original": 151,
+      "effective": 151
+    },
+    "mmlu_college_physics": {
+      "original": 102,
+      "effective": 102
+    }
+  },
+  "config": {
+    "model": "hf",
+    "model_args": {
+      "pretrained": "openai/gpt-oss-120b",
+      "trust_remote_code": true,
+      "dtype": "bfloat16",
+      "parallelize": true,
+      "max_memory_per_gpu": "35GiB",
+      "attn_implementation": "eager",
+      "max_length": 4096
+    },
+    "model_num_parameters": 116829156672,
+    "model_dtype": "torch.bfloat16",
+    "model_revision": "main",
+    "model_sha": "b5c939de8f754692c1647ca79fbf85e8c1e70f8a",
+    "batch_size": "1",
+    "batch_sizes": [],
+    "device": "cuda:0",
+    "use_cache": null,
+    "limit": null,
+    "bootstrap_iters": 100000,
+    "gen_kwargs": {},
+    "random_seed": 0,
+    "numpy_seed": 1234,
+    "torch_seed": 1234,
+    "fewshot_seed": 1234
+  },
+  "git_hash": "d66b0aa",
+  "date": 1777315691.1605208,
+  "pretty_env_info": "PyTorch version: 2.6.0+cu124\nIs debug build: False\nCUDA used to build PyTorch: 12.4\nROCM used to build PyTorch: N/A\n\nOS: Ubuntu 22.04.5 LTS (x86_64)\nGCC version: (conda-forge 9.4.0-15) 9.4.0\nClang version: Could not collect\nCMake version: version 3.27.5\nLibc version: glibc-2.35\n\nPython version: 3.11.15 (main, Mar 11 2026, 17:20:07) [GCC 14.3.0] (64-bit runtime)\nPython platform: Linux-5.15.0-141-generic-x86_64-with-glibc2.35\nIs CUDA available: True\nCUDA runtime version: 13.0.88\nCUDA_MODULE_LOADING set to: LAZY\nGPU models and configuration: \nGPU 0: NVIDIA A100-SXM4-80GB\nGPU 1: NVIDIA A100-SXM4-80GB\nGPU 2: NVIDIA A100-SXM4-80GB\nGPU 3: NVIDIA A100-SXM4-80GB\nGPU 4: NVIDIA A100-SXM4-80GB\nGPU 5: NVIDIA A100-SXM4-80GB\nGPU 6: NVIDIA A100-SXM4-80GB\nGPU 7: NVIDIA A100-SXM4-80GB\n\nNvidia driver version: 580.95.05\ncuDNN version: Could not collect\nHIP runtime version: N/A\nMIOpen runtime version: N/A\nIs XNNPACK available: True\n\nCPU:\nArchitecture:                         x86_64\nCPU op-mode(s):                       32-bit, 64-bit\nAddress sizes:                        43 bits physical, 48 bits virtual\nByte Order:                           Little Endian\nCPU(s):                               256\nOn-line CPU(s) list:                  0-255\nVendor ID:                            AuthenticAMD\nModel name:                           AMD EPYC 7742 64-Core Processor\nCPU family:                           23\nModel:                                49\nThread(s) per core:                   2\nCore(s) per socket:                   64\nSocket(s):                            2\nStepping:                             0\nFrequency boost:                      enabled\nCPU max MHz:                          2250.0000\nCPU min MHz:                          1500.0000\nBogoMIPS:                             4491.51\nFlags:                                fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local clzero irperf xsaveerptr rdpru wbnoinvd amd_ppin arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip rdpid overflow_recov succor smca sme sev sev_es\nVirtualization:                       AMD-V\nL1d cache:                            4 MiB (128 instances)\nL1i cache:                            4 MiB (128 instances)\nL2 cache:                             64 MiB (128 instances)\nL3 cache:                             512 MiB (32 instances)\nNUMA node(s):                         8\nNUMA node0 CPU(s):                    0-15,128-143\nNUMA node1 CPU(s):                    16-31,144-159\nNUMA node2 CPU(s):                    32-47,160-175\nNUMA node3 CPU(s):                    48-63,176-191\nNUMA node4 CPU(s):                    64-79,192-207\nNUMA node5 CPU(s):                    80-95,208-223\nNUMA node6 CPU(s):                    96-111,224-239\nNUMA node7 CPU(s):                    112-127,240-255\nVulnerability Gather data sampling:   Not affected\nVulnerability Itlb multihit:          Not affected\nVulnerability L1tf:                   Not affected\nVulnerability Mds:                    Not affected\nVulnerability Meltdown:               Not affected\nVulnerability Mmio stale data:        Not affected\nVulnerability Reg file data sampling: Not affected\nVulnerability Retbleed:               Mitigation; untrained return thunk; SMT enabled with STIBP protection\nVulnerability Spec rstack overflow:   Mitigation; safe RET\nVulnerability Spec store bypass:      Mitigation; Speculative Store Bypass disabled via prctl and seccomp\nVulnerability Spectre v1:             Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:             Mitigation; Retpolines; IBPB conditional; STIBP always-on; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected\nVulnerability Srbds:                  Not affected\nVulnerability Tsx async abort:        Not affected\n\nVersions of relevant libraries:\n[pip3] numpy==2.4.4\n[pip3] nvidia-cublas-cu12==12.4.5.8\n[pip3] nvidia-cuda-cupti-cu12==12.4.127\n[pip3] nvidia-cuda-nvrtc-cu12==12.4.127\n[pip3] nvidia-cuda-runtime-cu12==12.4.127\n[pip3] nvidia-cudnn-cu12==9.1.0.70\n[pip3] nvidia-cufft-cu12==11.2.1.3\n[pip3] nvidia-curand-cu12==10.3.5.147\n[pip3] nvidia-cusolver-cu12==11.6.1.9\n[pip3] nvidia-cusparse-cu12==12.3.1.170\n[pip3] nvidia-cusparselt-cu12==0.7.1\n[pip3] nvidia-nccl-cu12==2.21.5\n[pip3] nvidia-nvjitlink-cu12==12.4.127\n[pip3] nvidia-nvtx-cu12==12.4.127\n[pip3] torch==2.6.0+cu124\n[pip3] triton==3.6.0\n[conda] _tflow_select             2.3.0                       mkl  \n[conda] blas                      1.0                         mkl  \n[conda] cudatoolkit               11.8.0               h6a678d5_0  \n[conda] libblas                   3.9.0            12_linux64_mkl    conda-forge\n[conda] libcblas                  3.9.0            12_linux64_mkl    conda-forge\n[conda] libcusparse               11.7.3.50            h6aaafad_0    nvidia\n[conda] liblapack                 3.9.0            12_linux64_mkl    conda-forge\n[conda] mkl                       2021.4.0              intel_640    intel\n[conda] mkl-service               2.4.0            py39h7f8727e_0  \n[conda] numpy                     1.19.5                   pypi_0    pypi\n[conda] nvidia-cublas-cu11        11.10.3.66               pypi_0    pypi\n[conda] nvidia-cuda-cupti-cu11    11.7.101                 pypi_0    pypi\n[conda] nvidia-cuda-nvrtc-cu11    11.7.99                  pypi_0    pypi\n[conda] nvidia-cuda-runtime-cu11  11.7.99                  pypi_0    pypi\n[conda] nvidia-cudnn-cu11         8.5.0.96                 pypi_0    pypi\n[conda] nvidia-cufft-cu11         10.9.0.58                pypi_0    pypi\n[conda] nvidia-curand-cu11        10.2.10.91               pypi_0    pypi\n[conda] nvidia-cusolver-cu11      11.4.0.1                 pypi_0    pypi\n[conda] nvidia-cusparse-cu11      11.7.4.91                pypi_0    pypi\n[conda] nvidia-nccl-cu11          2.14.3                   pypi_0    pypi\n[conda] nvidia-nvtx-cu11          11.7.91                  pypi_0    pypi\n[conda] pytorch-lightning         2.0.3                    pypi_0    pypi\n[conda] tensorflow                2.11.0          mkl_py39hea27e05_0  \n[conda] tensorflow-base           2.11.0          mkl_py39he5f8e37_0  \n[conda] torch                     2.0.1                    pypi_0    pypi\n[conda] torchaudio                2.0.2                    pypi_0    pypi\n[conda] torchinfo                 1.8.0                    pypi_0    pypi\n[conda] torchmetrics              0.11.4                   pypi_0    pypi\n[conda] torchvision               0.15.2                   pypi_0    pypi\n[conda] triton                    2.0.0                    pypi_0    pypi",
+  "transformers_version": "5.5.0",
+  "lm_eval_version": "0.4.11",
+  "upper_git_hash": null,
+  "tokenizer_pad_token": [
+    "<|endoftext|>",
+    "199999"
+  ],
+  "tokenizer_eos_token": [
+    "<|return|>",
+    "200002"
+  ],
+  "tokenizer_bos_token": [
+    "<|startoftext|>",
+    "199998"
+  ],
+  "eot_token_id": 200002,
+  "max_length": 4096,
+  "task_hashes": {},
+  "model_source": "hf",
+  "model_name": "openai/gpt-oss-120b",
+  "model_name_sanitized": "openai__gpt-oss-120b",
+  "system_instruction": null,
+  "system_instruction_sha": null,
+  "fewshot_as_multiturn": null,
+  "chat_template": null,
+  "chat_template_sha": null,
+  "total_evaluation_time_seconds": "7023.92221426405"
+}
