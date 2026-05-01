@@ -7,12 +7,17 @@ This file tracks design decisions and future work for the bimodal (spectra + tex
 ## Active Design Decisions
 
 ### [1] Model: Switch to GPT-OSS-120B
-- **Status:** In progress — config.yaml updated, training/eval scripts point to `gpt-oss-120b`
-- **Notes:**
-  - 120B requires FSDP or DeepSpeed Zero-3 (scripts already updated for this)
-  - Use `bfloat16` instead of `fp16`
-  - LoRA rank may need tuning (start with r=8 or r=16, large models often need lower rank)
-  - Verify the model ID on HuggingFace / internal registry before running
+- **Status:** DONE — 120B trained (LoRA r=8, structured verbalization adapter at
+  `output_models/gpt-oss-120b_structured/`) and benchmarked end-to-end on 8×A100-80GB
+- **120B vs 20B benchmark headline** (mean Δ accuracy after fine-tuning, FT − base):
+  - 20B: −3.17 pp average (12 tasks degraded, worst `bbh_temporal_sequences` −72.8)
+  - 120B: +0.04 pp average — preserved general reasoning, gained on GPQA (+3.4)
+  - See `overnight_results/latest/benchmark_diff_20b_vs_120b.png`
+- **Production-ready settings** (no quantization):
+  - bf16 dequantized at load, `parallelize=True`, `max_memory_per_gpu=35GiB`,
+    `attn_implementation=eager`, `max_length=4096` (caps the 18 GiB eager-attention
+    activation that would otherwise OOM GPU 0)
+  - All in `run_benchmarks.sh` and `experiments/benchmark_adapter.py`
 
 ### [2] Tokenization Iteration
 - **Status:** Implemented — `tokenization/spec_tokenizer.py` + `tokenization/verbalize.py`
@@ -33,24 +38,34 @@ This file tracks design decisions and future work for the bimodal (spectra + tex
 - **Tracked via:** `config.yaml` → `tokenization_strategy` field
 - **Next:** compare redshift MAE across strategies; try masking different fields at training time
 
-### [3] AutoResearch Integration
-- **Status:** TODO — placeholder stub at `experiments/autoresearch_stub.py`
-- **Goal:** Use Karpathy's autoresearch framework to auto-discover best fine-tuning configurations
-  - Repo: https://github.com/karpathy/autoresearch
-  - Replace manual grid search in `config.yaml` with autoresearch-driven exploration
-  - Define a reward/objective function (redshift MAE + benchmark retention)
-  - The criteria for "best model" needs to be decided (see below)
-- **Candidate objective:**
-  - Criteria-1: minimize redshift MAE (domain task)
-  - Criteria-2: preserve ≥ X% of base-model benchmark scores (MMLU physics, GPQA, BBH)
-  - Penalty: catastrophic forgetting (if scientific reasoning drops > 5% absolute)
-  - Make this work with eval-harness.
-  - Criteria-1 and Criteria-2 may counter each other. 
-- **Steps:**
-  1. Install autoresearch: `pip install autoresearch` (or clone from GitHub)
-  2. Define `autoresearch_config.yaml` with search space and objective
-  3. Replace `generate_experiments.py` loop with autoresearch-guided trials
-  4. Store autoresearch logs in `experiments/autoresearch_runs/`
+### [3] AutoResearch
+- **Status:** WORKING — hand-rolled greedy axis-aligned search has produced 12 trials
+  on 20B; dual-objective scoring is wired but not yet exercised end-to-end
+- **What's done:**
+  - `experiments/run_loop.sh` — sequential trial loop, `keep`/`discard` vs current best
+  - `experiments/run_experiment.py` — single-trial training + redshift MAE eval (~10 min)
+  - `experiments/autoresearch_runs/results.tsv` — 12 trials logged, best MAE **0.0561**
+    (300 training steps, lr=1e-4, r=8); see `analysis/plot_autoresearch_money.py`
+  - `experiments/benchmark_adapter.py` — fast lm-eval helper (~2 min/trial via `TASKS_FAST`)
+  - `experiments/autoresearch_stub.py:compute_objective` — dual objective penalizing
+    >5% drop on sci_reasoning or general_qa
+  - `experiments/autoresearch_runs/base_benchmarks.json` — 20B baseline scores
+  - `WITH_BENCHMARKS=1 bash experiments/run_loop.sh` — opt-in dual-objective mode
+- **Multi-objective sweep (NEW):**
+  - `experiments/pareto_loop.py` — random sampling, dual-objective scoring,
+    incremental Pareto front, JSONL log, plot refresh after every trial
+  - `experiments/run_pareto_overnight.sh` — overnight launcher (`nohup … &`)
+  - `analysis/plot_pareto_money.py` — Pareto-aware money plot (scatter + Pareto
+    front + twin-axes convergence)
+  - **Run it:** `nohup bash experiments/run_pareto_overnight.sh 50 > pareto.log 2>&1 &`
+- **Still to do:**
+  1. Run the overnight sweep on 20B and analyze the Pareto front (~10 hours, 50 trials)
+  2. Replace random sampling with a smarter proposer. Options: Karpathy's
+     https://github.com/karpathy/autoresearch, Optuna's NSGA-II sampler, Ax —
+     all slot in by replacing `sample_config()` in `pareto_loop.py`
+  3. Expand the search space to include tokenization strategies (currently fixed at
+     `structured_verbalization_compact`), block_size, and dataset size
+  4. Decide whether to also sweep 120B once the 20B Pareto front is mapped
 
 ### [4] Interpretability: Where Do Spectra Live in the Weights?
 - **Status:** TODO — design study
@@ -91,3 +106,11 @@ This file tracks design decisions and future work for the bimodal (spectra + tex
 - [x] LM eval harness integration (BBH, GPQA, MMLU physics, AstroMLAB)
 - [x] Experiment suite with grid search (lr, lora_r, epochs, training_size)
 - [x] Results collection into LaTeX tables
+- [x] Switch to GPT-OSS-20B + 120B (config.yaml, training, eval scripts)
+- [x] Structured verbalization tokenization strategy (rich text + compact spectrum)
+- [x] 20B + 120B fine-tuned LoRA adapters trained
+- [x] lm-eval harness benchmarks for both 20B and 120B (base + fine-tuned),
+      pure bf16 with `parallelize=True` + `max_length=4096` for 120B
+- [x] 4-model comparison plots (20B vs 120B base/FT delta — see
+      `analysis/plot_benchmark_diff.py`, `overnight_results/latest/benchmark_diff_20b_vs_120b.png`)
+- [x] AutoResearch dual-objective scaffolding (helper + scoring + baseline JSON)

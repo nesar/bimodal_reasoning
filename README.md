@@ -140,6 +140,30 @@ Each trial still trains + measures redshift MAE (fast), then also runs
 `bench_sci_reasoning`, `bench_general_qa`, and the compound `score`. Default
 (`WITH_BENCHMARKS` unset) keeps the MAE-only selection used so far.
 
+### 8. Multi-objective Pareto sweep (overnight)
+A randomized search that tracks **both** objectives independently and traces
+the Pareto front:
+  * **MAE** (minimize) — redshift prediction
+  * **MCQ score** (maximize) — `(sci_reasoning + general_qa) / 2`
+
+```bash
+nohup bash experiments/run_pareto_overnight.sh 50 > pareto.log 2>&1 &
+tail -f pareto.log
+```
+
+Each trial samples `experiments/pareto_loop.py:SEARCH_SPACE` (lr, lora_r,
+lora_alpha, lora_dropout, grad_accum, max_steps, warmup_ratio), trains,
+benchmarks, and appends one JSON line to
+`experiments/autoresearch_runs/pareto/results.jsonl`. The Pareto front is
+recomputed and `plots/autoresearch_pareto.png` is regenerated after every
+trial — progress is visible mid-run. The loop is resumable: re-running picks
+up after the highest `trial` index already in the JSONL.
+
+The plot (see `analysis/plot_pareto_money.py`) has two panels: a scatter of
+(MAE, MCQ) coloured by trial order with the Pareto front highlighted, and a
+twin-axes convergence panel showing best-MAE-so-far and best-MCQ-so-far vs
+trial #.
+
 ## Key Design Choices (see TODO.md for details)
 1. **Model:** GPT-OSS-120B (switched from Llama-3-8B)
 2. **Tokenization:** Pluggable strategies (digit, hex, quantized vocab, ...)

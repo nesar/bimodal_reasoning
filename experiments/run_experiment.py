@@ -19,6 +19,12 @@ import sys
 import time
 from pathlib import Path
 
+# Triton 3.6 (installed for lm-eval MXFP4 path) removed AttrsDescriptor that
+# torch._inductor still imports via DeepSpeed → torch.compile chain. Patch
+# before any torch import.
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+import experiments.triton_compat  # noqa: F401
+
 import numpy as np
 import torch
 from datasets import Dataset
@@ -28,7 +34,6 @@ from transformers import (
     DataCollatorForLanguageModeling,
 )
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from eval.redshift_eval_peft import trim_spectrum_to_fit, extract_redshift
 from experiments.benchmark_adapter import run_lm_eval, aggregate, TASKS_FAST
 
